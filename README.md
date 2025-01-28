@@ -4,5 +4,5 @@ Welcome to my Python portfolio! This repository will include some of the code an
 
 ## Repository Structure
 - **Computing II**: This folder contains the work I will be doing throughout the *Elements of Computing II* course.
-    - **In-Class Assignments**: This subfolder includes assignments that I complete twice a week during class. [Link to assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/Class%20Assingments)
+    - **In-Class Assignments**: This subfolder includes assignments that I complete twice a week during class. [Link to In-Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/Class%20Assingments)
 
