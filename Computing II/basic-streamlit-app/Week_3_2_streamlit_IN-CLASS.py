@@ -1,6 +1,12 @@
 # Import the Streamlit library
+import streamlit as st
+
+#ls to list all files and folders in the current directory
+# cd navigate in and out of folder
 
 # Display a simple text message
+st.write("Hello, streamlit")
+st.markdown("# This is my first streamlit app")
 
 # Display a large title on the app
 
@@ -10,6 +16,10 @@
 
 # Create a button that users can click.
 # If the button is clicked, the message changes.
+if st.button("Click me!"):
+    st.write("You clicked the button! Great Job!")
+else:
+    st.write("I DARE YOU TO CLICK THIS BUTTON...")
 
 # ------------------------
 # COLOR PICKER WIDGET
@@ -61,3 +71,4 @@
 # 1️⃣ Modify the dataframe (add new columns or different data).
 # 2️⃣ Add an input box for users to type names and filter results.
 # 3️⃣ Make a simple chart using st.bar_chart().
+
