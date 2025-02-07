@@ -15,7 +15,7 @@ st.dataframe(df)
 
 #Data Exploration
 st.subheader("Data Exploration")
-st.write("Explore the data by maniputaing the filters below")
+st.write("Explore the data by maniputaing the filters below:")
 
 #Product Category Select box
 category = st.selectbox("Select a Product Category", df["Category"].unique())
