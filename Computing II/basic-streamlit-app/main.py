@@ -4,7 +4,7 @@ import pandas as pd
 
 #Title Requirments
 st.title("Customer Shopping Trends Analysis")
-st.subheader("Explore Customer Shopping Data to understand Recent Trends and filter by Various Parameters.")
+st.subheader("Explore Customer Shopping Data to understand recent trends and filter by parameters including Product Category, Item Type, Price Limit, Location and Gender.")
 
 #Data Load
 df = pd.read_csv("data/shopping_trends 2.csv")
@@ -20,7 +20,7 @@ st.write("Explore the data by maniputaing the filters below:")
 #Product Category Select box
 category = st.selectbox("Select a Product Category", df["Category"].unique())
 
-#Iten Selected multiselect
+#Item Multiselect
 items = st.multiselect("Select Items Purchased", df["Item Purchased"].unique())
 
 #Price Sldier 
@@ -38,7 +38,7 @@ gender_selection = st.radio("Select Gender", df["Gender"].unique())
 
 #Filter Confirmation
 st.subheader('Selected Filters')
-st.write("*Please note that The filtered data will only include the selected items within the specified category.*")
+st.write("*Please note that the filtered data will only include the selected items within the specified category.*")
 st.write(f"**Selected Category:** {category}")
 st.write(f"**Selected Items:** {items}")
 st.write(f"**Selected Price Limit (USD):** ${Price_Limit}")
