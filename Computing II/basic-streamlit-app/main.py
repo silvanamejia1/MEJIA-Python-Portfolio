@@ -35,6 +35,7 @@ State = st.selectbox("Select a Location", df["Location"].unique())
 gender_selection = st.radio("Select Gender", df["Gender"].unique())
 
 
+
 #Filter Confirmation
 st.subheader('Selected Filters')
 st.write("*Please note that the filtered data will only include the selected items within the specified category.*")
