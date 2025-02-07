@@ -11,6 +11,7 @@ This Streamlit application allows users to interactively explore customer shoppi
 - **Data Preview**: Displays a preview of the full dataset when the app loads.
 - **Interactive Filters**:
   - **Product Category Selection**: Choose a product category from the available options.
+  - **Item Selection** : Choose a specific item from the specified Product Category.
   - **Price Filter**: Use a slider to filter purchases based on a selected price limit.
   - **Location Filter**: Select a location to narrow down results.
   - **Gender Filter**: Choose a gender to filter the data further.
