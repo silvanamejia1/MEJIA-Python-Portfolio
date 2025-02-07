@@ -3,7 +3,7 @@
 # Customer Shopping Trends Analysis App
 
 ## **Overview**
-This Streamlit application allows users to interactively explore customer shopping data, analyze trends, and filter the dataset using various criteria such as Product Category, Items, Purchase Amount, Location, and Gender. The app is designed to help users gain insights into recent shopping patterns through an easy-to-use interface.
+This Streamlit application allows users to interactively explore customer shopping data, analyze trends, and filter the dataset using various criteria such as Product Category, Item Type, Purchase Amount, Location, and Gender. The app is designed to help users gain insights into recent shopping patterns through an easy-to-use interface.
 
 
 
