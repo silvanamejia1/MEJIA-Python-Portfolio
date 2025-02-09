@@ -1,3 +1,13 @@
+'''
+Instructions to Run the App:
+1. ** Open terminal.**
+2. **Navigate to the basic-streamlit-app folder:**
+    - cd MEJIA-PYTHON-PORTFOLIO/Computing II/basic-streamlit-app
+3. Run Streamlit app with command below:
+    - streamlit run main.py
+4. Access the app in browser at the URL provided by Streamlit (SEE TERMINAL)
+'''
+
 # Import the Streamlit library
 import streamlit as st
 import pandas as pd
