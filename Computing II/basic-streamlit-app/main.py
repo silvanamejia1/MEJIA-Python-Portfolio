@@ -1,7 +1,7 @@
 '''
 Instructions to Run the App:
-1. ** Open terminal.**
-2. **Navigate to the basic-streamlit-app folder:**
+1. Open terminal.
+2. Navigate to the basic-streamlit-app folder:
     - cd MEJIA-PYTHON-PORTFOLIO/Computing II/basic-streamlit-app
 3. Run Streamlit app with command below:
     - streamlit run main.py
