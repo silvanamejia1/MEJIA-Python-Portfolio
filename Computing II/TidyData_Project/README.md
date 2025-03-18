@@ -24,14 +24,13 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
     • Handling NaNs: Missing values were removed because each athlete only competed in one event, making empty columns redundant.
     • Splitting Columns: Gender and event were split into separate columns (from 1 gender_event column to 2 columns: gender and event) for easier analysis.
 
-### Key Findings
-**Medal Count by Event:**
+## Key Findings
+### Medal Count by Event
     • Bronze medals were awarded more frequently than gold and silver, likely due to ties or multiple bronze winners in some sports. 
-        ![alt text](graphs/image-1.png)
 
     • Events with the most medalists tend to be team sports or those with multiple categories, such as athletics, rowing, and swimming.
 
-**Gender Representation**
+### Gender Representation**
     • Male medalists slightly outnumbered female medalists (55% vs. 45%).
     • In most events, there where more male medalist than female medalists, while some events only had male competitions. The gap aligns with historical participation disparities, as women's events were introduced later and often had fewer categories.
 
