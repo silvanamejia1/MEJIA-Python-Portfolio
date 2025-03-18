@@ -11,9 +11,9 @@ This project explores the **2008 Olympic medalist** dataset while applying tidy 
 ## Instructions 
 1. **Open terminal.**
 2. **Navigate to the TidyData_Project folder:**
-    • cd MEJIA-PYTHON-PORTFOLIO/Computing II/TidyData_Project 
+    - `cd MEJIA-PYTHON-PORTFOLIO/Computing II/TidyData_Project`
 3. **Run Jupyter Notebook with command below:**
-    • jupyter notebook
+    - `jupyter notebook`
 4. **Open Notebook File**
     - This command will open Jupyter Notebook in your default web browser.
     - In the Jupyter interface, locate and click on tidy_code.ipynb to open the notebook.
