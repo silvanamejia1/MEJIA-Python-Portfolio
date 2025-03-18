@@ -11,6 +11,8 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 
 ## Instructions 
 
+## References
+- Include tidy data paper and the website i quoted 
 
 ## Dataset Description 
 ### Data Source  
@@ -28,16 +30,9 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
         ![alt text](graphs/image-1.png)
 
     • Events with the most medalists tend to be team sports or those with multiple categories, such as athletics, rowing, and swimming.
-        ![alt text](graphs/image-3.png)
-        ![alt text](image.png)
-
-
-        
 
 **Gender Representation**
     • Male medalists slightly outnumbered female medalists (55% vs. 45%).
-        ![alt text](image.png)
-
     • In most events, there where more male medalist than female medalists, while some events only had male competitions. The gap aligns with historical participation disparities, as women's events were introduced later and often had fewer categories.
 
 
@@ -47,6 +42,4 @@ Three common medal distribution patterns were identified:
 2.	Unequal distribution: Some events had skewed medal allocations due to performance dominance.
 3.	25-25-50 split (Two bronze medals awarded): Common in combat sports (boxing, judo, wrestling, taekwondo) due to the elimination of bronze medal matches in 1950, ensuring both losing semifinalists receive a medal.
 
-## **References**
-- Include tidy data paper and the website i quoted 
 
