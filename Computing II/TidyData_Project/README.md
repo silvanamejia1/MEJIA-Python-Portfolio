@@ -11,7 +11,7 @@ This project explores the **2008 Olympic medalist** dataset while applying tidy 
 ## Instructions 
 
 ## References
-- Tidy Data. Journal of Statistical Software, 1-23: https://vita.had.co.nz/papers/tidy-data.pdf
+- Tidy Data, Journal of Statistical Software, 1-24: https://vita.had.co.nz/papers/tidy-data.pdf
 - Pandas Cheat Sheet : https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
     - These resources helped understand the structure of a tidy data set and run the commands that clean the dataset.
 - Two Bronze Medals Explained: Why Some Olympic Events Have Multiple Bronze Winners: https://www.nbcbayarea.com/paris-2024-summer-olympics/two-bronze-medals-explained-olympics/3617259/
