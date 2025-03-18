@@ -2,7 +2,7 @@
 
 ## *Project Overview **
 ## MISSING ADD CLEAN DATA PRINCIPLES
-This project explores the 2008 Olympic medalist dataset while applying tidy data principles to make the data easier to analyze. The original dataset includes information on the name of each Olympic Medalist in the rows and event_gender as the columns. It is important to highlight that each medalist only competed in one event and therefore only one column per row had information, the rest was filled by NaN values (events that they didn’t compete in). As a result, going through the tidy data process was crucial. The goal is to structure the dataset into a long format, allowing for efficient summarization, visualization, and analysis of medal distributions across events and genders.
+This project explores the 2008 Olympic medalist dataset while applying tidy data principles to make the data easier to analyze. The original dataset includes information on the name of each Olympic Medalist in the rows and event_gender as the columns. It is important to highlight that each medalist only competed in one event and therefore only one column per row had information, the rest was filled by NaN values (events that they didn’t compete in). As a result, going through the tidy data process was crucial. The goal is to follow the tidy data principles by structuring the dataset into a long format and dropping NaN, allowing for efficient summarization, visualization, and analysis of medal distributions across events and genders.
 
 ## ** Key Objectives:**
     • Clean and restructure the dataset to reduce sparsity.
@@ -30,6 +30,7 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 
 **Gender Representation**
     • Male medalists slightly outnumbered female medalists (55% vs. 45%).
+    ![alt text](image.png)
     • In most events, there where more male medalist than female medalists, while some events only had male competitions. The gap aligns with historical participation disparities, as women's events were introduced later and often had fewer categories.
 
 **Patterns in Medal Allocation**
