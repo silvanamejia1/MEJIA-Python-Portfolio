@@ -1,7 +1,7 @@
 # Tidy Data Project
 
 ## Project Overview 
-This project explores the 2008 Olympic medalist dataset while applying tidy data principles to make the data easier to analyze. The original dataset includes information on the name of each Olympic Medalist in the rows and event_gender as the columns. It is important to highlight that each medalist only competed in one event and therefore only one column per row had information, the rest was filled by NaN values (events that they didn’t compete in). As a result, going through the tidy data process was crucial. The goal is to follow the tidy data principles by structuring the dataset into a long format and dropping NaN, allowing for efficient summarization, visualization, and analysis of medal distributions across events and genders.
+This project explores the **2008 Olympic medalist** dataset while applying tidy data principles to make the data easier to analyze. The original dataset includes information on the name of each Olympic Medalist in the rows and event_gender as the columns. It is important to highlight that **each medalist only competed in one event** and therefore **only one column per row had information**, the rest was NaN values (events that they didn’t compete in). As a result, going through the tidy data process was crucial. The goal is to **follow the tidy data principles** by structuring the dataset into a long format, seprating columns with more than one variable and dropping NaN, allowing for efficient summarization, visualization, and analysis of medal distributions across events and by gender.
 
 ## Key Objectives:
 - Clean and restructure the dataset to reduce sparsity.
@@ -11,7 +11,11 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 ## Instructions 
 
 ## References
-- Include tidy data paper and the website i quoted 
+- Tidy Data. Journal of Statistical Software, 1-23: https://vita.had.co.nz/papers/tidy-data.pdf
+- Pandas Cheat Sheet : https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
+    - These resources helped understand the structure of a tidy data set and run the commands that clean the dataset.
+- Two Bronze Medals Explained: Why Some Olympic Events Have Multiple Bronze Winners: https://www.nbcbayarea.com/paris-2024-summer-olympics/two-bronze-medals-explained-olympics/3617259/
+    - This article provided insights into medal distribution patterns, particularly why some events award multiple bronze medals which seemed odd in the beggining.
 
 ## Dataset Description 
 ### Data Source  
@@ -39,7 +43,7 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 
 
 ### Patterns in Medal Allocation
-Three common medal distribution patterns were identified:
+Three common medal distribution patterns were identified throught the pivot table aggregation:
 1.	**Equal distribution (33.3% each):** Common in structured competitions with clear podium placements.
 2.	**Unequal distribution:** Some events had skewed medal allocations due to performance dominance.
 3.	**25-25-50 split (Two bronze medals awarded):** Common in combat sports (boxing, judo, wrestling, taekwondo) due to the elimination of bronze medal matches in 1950, ensuring both losing semifinalists receive a medal.
