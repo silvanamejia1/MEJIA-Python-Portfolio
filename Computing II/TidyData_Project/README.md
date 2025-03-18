@@ -9,6 +9,19 @@ This project explores the **2008 Olympic medalist** dataset while applying tidy 
 - Use graphs and pivot tables Analyze gender representation and medal breakdown in Olympic events.
 
 ## Instructions 
+1. **Open terminal.**
+2. **Navigate to the TidyData_Project folder:**
+    • cd MEJIA-PYTHON-PORTFOLIO/Computing II/TidyData_Project 
+3. **Run Jupyter Notebook with command below:**
+    • jupyter notebook
+4. **Open Notebook File**
+    - This command will open Jupyter Notebook in your default web browser.
+    - In the Jupyter interface, locate and click on tidy_code.ipynb to open the notebook.
+5. **Install Required Libraries**
+    • import pandas as pd
+    • import matplotlib.pyplot as plt
+6. **Run the Notebook**
+    - Click "Run All" to run all cells at once or manually run each cell by selecting it and pressing Shift + Enter, or the play button.
 
 ## References
 - Tidy Data, Journal of Statistical Software, 1-24: https://vita.had.co.nz/papers/tidy-data.pdf
