@@ -25,10 +25,11 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 ### Key Findings
 **Medal Count by Event:**
     • Bronze medals were awarded more frequently than gold and silver, likely due to ties or multiple bronze winners in some sports. 
-        ![alt text](image-1.png)
+        ![alt text](graphs/image-1.png)
 
     • Events with the most medalists tend to be team sports or those with multiple categories, such as athletics, rowing, and swimming.
-        ![alt text](image-4.png)
+        ![alt text](graphs/image-3.png)
+
         
 
 **Gender Representation**
