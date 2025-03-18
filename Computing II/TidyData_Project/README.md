@@ -29,6 +29,8 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 
     • Events with the most medalists tend to be team sports or those with multiple categories, such as athletics, rowing, and swimming.
         ![alt text](graphs/image-3.png)
+        ![alt text](image.png)
+
 
         
 
