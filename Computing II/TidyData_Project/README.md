@@ -40,8 +40,8 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 
 ### Patterns in Medal Allocation
 Three common medal distribution patterns were identified:
-1.	Equal distribution (33.3% each): Common in structured competitions with clear podium placements.
-2.	Unequal distribution: Some events had skewed medal allocations due to performance dominance.
-3.	25-25-50 split (Two bronze medals awarded): Common in combat sports (boxing, judo, wrestling, taekwondo) due to the elimination of bronze medal matches in 1950, ensuring both losing semifinalists receive a medal.
+1.	**Equal distribution (33.3% each):** Common in structured competitions with clear podium placements.
+2.	**Unequal distribution:** Some events had skewed medal allocations due to performance dominance.
+3.	**25-25-50 split (Two bronze medals awarded):** Common in combat sports (boxing, judo, wrestling, taekwondo) due to the elimination of bronze medal matches in 1950, ensuring both losing semifinalists receive a medal.
 
 
