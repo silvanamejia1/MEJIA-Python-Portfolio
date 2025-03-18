@@ -4,10 +4,9 @@
 This project explores the 2008 Olympic medalist dataset while applying tidy data principles to make the data easier to analyze. The original dataset includes information on the name of each Olympic Medalist in the rows and event_gender as the columns. It is important to highlight that each medalist only competed in one event and therefore only one column per row had information, the rest was filled by NaN values (events that they didn’t compete in). As a result, going through the tidy data process was crucial. The goal is to follow the tidy data principles by structuring the dataset into a long format and dropping NaN, allowing for efficient summarization, visualization, and analysis of medal distributions across events and genders.
 
 ## Key Objectives:
-    • Clean and restructure the dataset to reduce sparsity.
-    • Investigate trends in medal distributions.
-    • Analyze gender representation and medal breakdown in Olympic events.
-    • Identify common patterns in medal allocation.
+- Clean and restructure the dataset to reduce sparsity.
+- Investigate trends in medal distributions.
+- Use graphs and pivot tables Analyze gender representation and medal breakdown in Olympic events.
 
 ## Instructions 
 
@@ -34,7 +33,8 @@ This project explores the 2008 Olympic medalist dataset while applying tidy data
 ### Gender Representation
 - In most events, there where more male medalist than female medalists, while some events only had male competitions. The gap aligns with historical participation disparities, as women's events were introduced later and often had fewer categories.
     ![alt text](image-3.png)
-- In the 2008 Olympics Male medalists slightly outnumbered female medalists (55% vs. 45%).
+- In the 2008 Olympics Male medalists slightly outnumbered Female medalists (55% vs. 45%).
+
     ![alt text](image-4.png)
 
 
