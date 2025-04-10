@@ -47,24 +47,21 @@ def clear_inputs():
     st.session_state.label_input = ""
     st.session_state.pattern_input = ""
 
-#This is a text input box that allows the user to insert labels and patterns
-label = st.text_input("Entity Label (e.g. FRUIT, EVENT)", key = "label_input") #label_input key created to be able to reference later
-pattern = st.text_input("Pattern to Match (e.g. apple, Bengal Bouts)", key = "pattern_input") #pattern_input key created to be able to reference later
 
 #This if statement that adds new pattern to the custom_patterns list in the session or ask the user to add a pattern if text boxes left blank 
-if st.button("➕ Add Entity Pattern"): 
+if st.button("➕ Add Entity Pattern"):
+    label = st.session_state.label_input.strip().upper()
+    pattern = st.session_state.pattern_input.strip().lower()
+    
     if label and pattern:
-        st.session_state.custom_patterns.append({ #pattern added to the session
-            "label": label.upper(),
-            "pattern": pattern.lower()
-        })
-        st.success(f"Pattern added Succesfuly: {label.upper()} → {pattern}") #success message displayed 
-        clear_inputs()
-    else:
-        st.warning("Please enter both a label and a pattern.") #warning message displayed because no new text was inputed
+        new_entry = {"label": label, "pattern": pattern}
 
-# Display added patterns
-if st.session_state.custom_patterns:
-    st.markdown("### ✅ Your Custom Patterns So Far:")
-    for item in st.session_state.custom_patterns:
-        st.write(f"• **{item['label']}** -  {item['pattern']}")
+        # Check for duplicates
+        if new_entry in st.session_state.custom_patterns: #Not adding duplicate patterns
+            st.warning("⚠️ That pattern and label have already been added.")
+        else:
+            st.session_state.custom_patterns.append(new_entry) #pattern added to the session
+            st.success(f"Pattern added successfully: {label} → {pattern}") #success message displayed 
+            clear_inputs()
+    else:
+        st.warning("Please enter both a label and a pattern.") #warning message displayed because no text was inputed
