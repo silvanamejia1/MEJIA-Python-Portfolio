@@ -1,0 +1,65 @@
+#Import Pandas
+import pandas as pd
+
+#Import Streamlit
+import streamlit as st
+
+
+# Streamlit app 
+# Page Title
+st.title("Custom Named Entity Recognition (NER) with spaCy")
+st.markdown("""
+Welcome to the **Custom NER Explorer**!
+
+This app lets you explore how Named Entity Recognition (NER) works using **spaCy**. You can:
+- Paste your own text,
+- Define your own custom entity labels and patterns (like people, places, tools, events, etc.)
+- See your custom entities highlighted in the text"
+
+Go ahead and follow the steps below!""")
+            
+# Step 1: Text Input
+st.subheader("Step 1: Enter Your Text")
+st.markdown("This can be the text passed through the Entity Rule we will created in Step 3")
+text = st.text_area("Paste your text here:", height=200)
+  
+# Step 2: Define Custom Patterns
+st.subheader("Step 2: Define Your Custom Entities")
+st.markdown("""
+Each entity needs:
+    - **Label** = the type of thing you want to recognize (e.g. `"FRUIT"`, `"EVENT"`)
+    - **Pattern** = the word or phrase you want to match (e.g. `"apple"`, `"Bengal Bouts"`)
+
+**Example:**
+- Label: FRUIT
+- Pattern: apple
+
+Add as many as you want!
+""")
+
+#This if statement checks if a list of custom patterns has alredy been created, if not cresated it is built and added to the session
+if "custom_patterns" not in st.session_state: 
+    st.session_state.custom_patterns = [] 
+
+#This is a text input box that allows the user to insert labels and patterns
+label = st.text_input("Entity Label (e.g. FRUIT, EVENT)") #Label
+pattern = st.text_input("Pattern to Match (e.g. apple, Bengal Bouts)") #pattern
+
+#This if statement that adds new pattern to the custom_patterns list in the session or ask the user to add a pattern if text boxes left blank 
+if st.button("➕ Add Entity Pattern"): 
+    if label and pattern:
+        st.session_state.custom_patterns.append({ #pattern added to the session
+            "label": label.upper(),
+            "pattern": pattern.lower()
+        })
+        st.success(f"Pattern added Succesfuly: {label.upper()} → {pattern}") #success message displayed 
+        st.session_state.label_input = ""
+        st.session_state.pattern_input = ""
+    else:
+        st.warning("Please enter both a label and a pattern.") #warning message displayed because no new text was inputed
+
+# Display added patterns
+if st.session_state.custom_patterns:
+    st.markdown("### ✅ Your Custom Patterns So Far:")
+    for item in st.session_state.custom_patterns:
+        st.write(f"• **{item['label']}** -  {item['pattern']}")
