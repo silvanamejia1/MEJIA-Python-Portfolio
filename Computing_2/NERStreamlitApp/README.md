@@ -11,8 +11,7 @@ In addition to built-in NER, the app allows users to define custom entity patter
 ## Instructions
 
 ### Installation
-
-To run the app locally, follow the steps below:
+#### To run the app locally, follow the steps below:
 1. Open terminal inside main portafolio (MEJIA-Python-Portfolio)
 2. Run ‘pip install pipreqs’ command
 2. Navigate to the NERStreamlitApp folder:
@@ -21,8 +20,7 @@ To run the app locally, follow the steps below:
 4. Run ‘pipreqs’ command to create text file in folder  
 5. Run  ‘streamlit run NERStreamlitApp.py’ to open stremlit browser 
 
-
-Link to deployed version 
+#### Link to deployed version 
 https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
 
 ### Required Libraries and Intsalation Commands
@@ -30,11 +28,10 @@ https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
 	- import spacy
 nlp = spacy.load('en_core_web_sm')
 from spacy import displacy
-
 - streamlit
 	- import streamlit as st
 - pandas 
-- import pandas as pd
+    - import pandas as pd
 
 
 ## App Features
