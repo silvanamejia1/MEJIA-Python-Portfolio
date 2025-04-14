@@ -9,10 +9,6 @@ import spacy
 nlp = spacy.load('en_core_web_sm')
 from spacy import displacy
 
-
-
-#Hi! My name is Silvana Mejia and I am a Junior majoring in Busienss Analytics at the University of Notre Dame. I want to work in Wealth Managment in the future.
-
 # Streamlit app 
 # Page Title
 st.title("Custom Named Entity Recognition (NER) with spaCy")
@@ -20,8 +16,8 @@ st.markdown("""
 Welcome to the **Custom NER Explorer**!
 
 This app lets you explore how Named Entity Recognition (NER) works using **spaCy**. You can:
-- Paste your own text
-- Define your own custom entity labels and patterns (like people, places, tools, events, etc.)
+- Paste or upload your own text
+- Define your own custom entity labels and patterns
 - See your custom entities highlighted in the text using DisplaCy
 
 Go ahead and follow the steps below!""")
@@ -29,6 +25,8 @@ Go ahead and follow the steps below!""")
 # Step 1: Text Input or Upload
 st.subheader("Step 1: Enter Your Text")
 st.markdown("You can either paste your text or upload a .txt file below.")
+st.markdown("**Here is a sample text you can try**: ")
+st.markdown("Hi! I’m Silvana Mejia, a junior at Notre Dame majoring in Business Analytics with minors in Finance and Computing. I’m passionate about the intersection between people and the financial industry, which is what led me to explore wealth management as a career path. Over the past few years, I’ve had the chance to intern in Barcelona and study abroad in London, two experiences that pushed me outside my comfort zone and taught me how to adapt quickly, work across cultures, and communicate clearly. I’m also actively involved in ALPFA, where I’ve found a community that motivates me to grow both professionally and personally. During my free time, I've become very passionate about Golf, Travel and learning to cook new dishes.")
 
 # File uploader
 uploaded_file = st.file_uploader("Upload a .txt file", type=["txt"])
@@ -107,4 +105,40 @@ if st.session_state.custom_patterns:
 
 #------------------------------------------------
 # Step 3: Creating Entity Ruller
+st.subheader("Step 3: Apply Custom NER Rules")
+st.markdown("Click below to process your text using the patterns you've defined. This will show both your custom entities and spaCy's built-in ones.")
+
+
+if st.button("🔍 Run NER on Text"):
+   if not text:
+       st.warning("Please provide some text in Step 1.")
+   elif not st.session_state.custom_patterns:
+       st.warning("Please add at least one custom pattern in Step 2.")
+   else:
+       # Add the custom EntityRuler BEFORE the NER component so both show up, but custom rules are picked up prior to entities
+       ruler = nlp.add_pipe("entity_ruler", before="ner", config={          
+           "phrase_matcher_attr": "LOWER"        # Enable case-insensitive matching
+       })
+
+
+       # Add user-defined patterns
+       ruler.add_patterns(st.session_state.custom_patterns)
+
+
+       # Process the text
+       doc = nlp(text)
+
+
+       # Show detected entities
+       if doc.ents:
+           st.success("✅ Entities detected!")
+           st.markdown("### Detected Entities:")
+           for ent in doc.ents:
+               st.write(f"• **{ent.text}** → `{ent.label_}`")
+
+
+           # Visualize entities with displacy
+           st.markdown("### Highlighted Text")
+           html = displacy.render(doc, style="ent", page=True)
+           st.components.v1.html(html, height=500, scrolling=True)
 
