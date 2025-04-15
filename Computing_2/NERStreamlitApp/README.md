@@ -42,7 +42,8 @@ from spacy import displacy
 - Users can upload a `.txt` file or paste their own custom text into a text area.
 - A sample text is provided in the app to allow for initial exploration and guidance.
 - The uploaded or entered text is processed to extract named entities.
-- ![Alt text](Computing_2/NERStreamlitApp/Screenshot 2025-04-14 at 10.42.46 PM.png)
+- ![alt text](Computing_2/NERStreamlitApp/step1.png)
+
 
 ### Step 2: Define Custom Entities
 
@@ -53,6 +54,7 @@ from spacy import displacy
 - Duplicate patterns are not re-recorded.
 - All added patterns are displayed in a list with the option to clear them.
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
+- ![alt text](Computing_2/NERStreamlitApp/step2.png)
 
 ### Step 3: Apply Custom NER Rules
 
@@ -62,6 +64,7 @@ from spacy import displacy
 - Detected entities are shown in two ways:
   - A structured list of recognized entity-label pairs.
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
+- ![alt text](Computing_2/NERStreamlitApp/step3.png)
 
 ## References
 - Using the ['spaCy 101'](https://spacy.io/usage/spacy-101) website was extremily useful to understand how spaCy operates on the backend to recognize certains parts of text. This also helped me link to the way it connects to its NER feature and EntityRuler processing pipeline.
