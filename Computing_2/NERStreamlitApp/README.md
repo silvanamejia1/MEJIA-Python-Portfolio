@@ -46,7 +46,7 @@ from spacy import displacy
 - A sample text is provided in the app to allow for initial exploration and guidance.
 - The uploaded or entered text is processed to extract named entities.
 - **App interface:**
-![alt text](step1.png width="400")
+<img src="step1.png" alt="Step 1 Screenshot" width="400"/>
 
 
 ### Step 2: Define Custom Entities
@@ -59,8 +59,9 @@ from spacy import displacy
 - All added patterns are displayed in a list with the option to clear them.
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
 - **App interface:**
-![alt text](step2.png)
-<img src="warningmessage.png" alt="Warning Message" width="300"/>
+<img src="step2.png" alt="Step 2 Screenshot" width="400"/>
+<img src="warningmessage.png" alt="Warning Message" width="400"/>
+<img src="CustomPatternsList.png" alt="Custom Patterns List Screenshot" width="400"/>
 
 ### Step 3: Apply Custom NER Rules
 
@@ -71,7 +72,10 @@ from spacy import displacy
   - A structured list of recognized entity-label pairs.
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
 - **App interface:**
-![alt text](step3.png)
+<img src="step3.png" alt="Step 3 Screenshot" width="400"/>
+<img src="entitiesdetected.png" alt="Entities Detected Screenshot" width="400"/>
+<img src="DisplaCyExample.png" alt="DisplaCy Visualizer Example" width="400"/>
+
 
 ## References
 - Using the ['spaCy 101'](https://spacy.io/usage/spacy-101) website was extremily useful to understand how spaCy operates on the backend to recognize certains parts of text. This also helped me link to the way it connects to its NER feature and EntityRuler processing pipeline.
