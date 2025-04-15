@@ -23,9 +23,6 @@ In addition to built-in NER, the app allows users to define custom entity patter
 
 #### Link to deployed version 
 https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
-import spacy
-nlp = spacy.load('en_core_web_sm')
-from spacy import displacy
 
 ### Required Libraries and Intsalation Commands
 - **spaCy (and spaCys English model)**
@@ -60,6 +57,7 @@ from spacy import displacy
 - Duplicate patterns are not re-recorded.
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
 <img src="warningmessage.png" alt="Warning Message" width="400"/>
+
 - All added patterns are displayed in a list with the option to clear them.
 <img src="CustomPatternsList.png" alt="Custom Patterns List Screenshot" width="400"/>
 
