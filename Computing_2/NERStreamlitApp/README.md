@@ -42,7 +42,7 @@ from spacy import displacy
 - Users can upload a `.txt` file or paste their own custom text into a text area.
 - A sample text is provided in the app to allow for initial exploration and guidance.
 - The uploaded or entered text is processed to extract named entities.
-- App interface: 
+- **App interface:**
 ![alt text](step1.png)
 
 
@@ -55,7 +55,7 @@ from spacy import displacy
 - Duplicate patterns are not re-recorded.
 - All added patterns are displayed in a list with the option to clear them.
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
-- App interface: 
+- **App interface:**
 ![alt text](step2.png)
 ![alt text](warningmessage.png)
 
@@ -67,7 +67,7 @@ from spacy import displacy
 - Detected entities are shown in two ways:
   - A structured list of recognized entity-label pairs.
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
-- App interface: 
+- **App interface:**
 ![alt text](step3.png)
 
 ## References
