@@ -54,27 +54,27 @@ from spacy import displacy
 - Users define custom entities by entering:
   - `Label`: The category name(e.g., `MAJOR`, `YEAR`, `CLUBS`)
   - `Pattern`: Specific example of item in the category (e.g., `business analytics`, `junior`, `ALPFA`)
+    - <img src="step2.png" alt="Step 2 Screenshot" width="400"/>
 - Patterns are case-insensitive.
 - Duplicate patterns are not re-recorded.
-- All added patterns are displayed in a list with the option to clear them.
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
-- **App interface:**
-<img src="step2.png" alt="Step 2 Screenshot" width="400"/>
-<img src="warningmessage.png" alt="Warning Message" width="400"/>
-<img src="CustomPatternsList.png" alt="Custom Patterns List Screenshot" width="400"/>
+    - <img src="warningmessage.png" alt="Warning Message" width="400"/>
+- All added patterns are displayed in a list with the option to clear them.
+    - <img src="CustomPatternsList.png" alt="Custom Patterns List Screenshot" width="400"/>
+
+
 
 ### Step 3: Apply Custom NER Rules
 
 - The app uses a combination of:
   - spaCy's built-in model (`en_core_web_sm`)
-  - A custom `EntityRuler` inserted before the built-in NER (step 2)x
+  - A custom `EntityRuler` inserted before the built-in NER (step 2)
+    - <img src="step3.png" alt="Step 3 Screenshot" width="400"/>
 - Detected entities are shown in two ways:
   - A structured list of recognized entity-label pairs.
+    - <img src="entitiesdetected.png" alt="Entities Detected Screenshot" width="400"/> 
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
-- **App interface:**
-<img src="step3.png" alt="Step 3 Screenshot" width="400"/>
-<img src="entitiesdetected.png" alt="Entities Detected Screenshot" width="400"/>
-<img src="DisplaCyExample.png" alt="DisplaCy Visualizer Example" width="400"/>
+    - <img src="DisplaCyExample.png" alt="DisplaCy Visualizer Example" width="400"/>
 
 
 ## References
