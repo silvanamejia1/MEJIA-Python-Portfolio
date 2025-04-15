@@ -63,4 +63,4 @@ from spacy import displacy
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
 
 ## References
-- Using the ['spaCy 101']('https://spacy.io/usage/spacy-101') website was extremily useful to understand how spaCy operates on the backend to recognize certains parts of text. This also helped me link to the way it connects to its NER feature and EntityRuler processing pipeline.
+- Using the ['spaCy 101'](https://spacy.io/usage/spacy-101) website was extremily useful to understand how spaCy operates on the backend to recognize certains parts of text. This also helped me link to the way it connects to its NER feature and EntityRuler processing pipeline.
