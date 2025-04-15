@@ -69,9 +69,11 @@ https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
   - spaCy's built-in model (`en_core_web_sm`)
   - A custom `EntityRuler` inserted before the built-in NER (step 2)
 <img src="images/step3.png" alt="Step 3 Screenshot" width="400"/>
+
 - Detected entities are shown in two ways:
   - A structured list of recognized entity-label pairs.
 <img src="images/EntitiesDetected.png" alt="Entities Detected Screenshot" width="400"/> 
+
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
 <img src="images/DisplaCyExample.png" alt="DisplaCy Visualizer Example" width="400"/>
 
