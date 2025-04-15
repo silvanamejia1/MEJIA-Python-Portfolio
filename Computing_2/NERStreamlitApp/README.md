@@ -46,7 +46,7 @@ from spacy import displacy
 - A sample text is provided in the app to allow for initial exploration and guidance.
 - The uploaded or entered text is processed to extract named entities.
 - **App interface:**
-![alt text](step1.png)
+![alt text](step1.png width="400")
 
 
 ### Step 2: Define Custom Entities
@@ -60,7 +60,7 @@ from spacy import displacy
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
 - **App interface:**
 ![alt text](step2.png)
-![alt text](warningmessage.png)
+<img src="warningmessage.png" alt="Warning Message" width="300"/>
 
 ### Step 3: Apply Custom NER Rules
 
