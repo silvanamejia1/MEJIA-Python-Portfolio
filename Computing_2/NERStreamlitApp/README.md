@@ -43,7 +43,7 @@ https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
 - A sample text is provided in the app to allow for initial exploration and guidance.
 - The uploaded or entered text is processed to extract named entities.
 - **App interface:**
-<img src="step1.png" alt="Step 1 Screenshot" width="400"/>
+<img src="images/step1.png" alt="Step 1 Screenshot" width="400"/>
 
 
 ### Step 2: Define Custom Entities
@@ -51,15 +51,15 @@ https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
 - Users define custom entities by entering:
   - `Label`: The category name(e.g., `MAJOR`, `YEAR`, `CLUBS`)
   - `Pattern`: Specific example of item in the category (e.g., `business analytics`, `junior`, `ALPFA`)
-<img src="step2.png" alt="Step 2 Screenshot" width="400"/>
+<img src="images/step2.png" alt="Step 2 Screenshot" width="400"/>
 
 - Patterns are case-insensitive.
 - Duplicate patterns are not re-recorded.
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
-<img src="warningmessage.png" alt="Warning Message" width="400"/>
+<img src="images/warningmessage.png" alt="Warning Message" width="400"/>
 
 - All added patterns are displayed in a list with the option to clear them.
-<img src="CustomPatternsList.png" alt="Custom Patterns List Screenshot" width="400"/>
+<img src="images/CustomPatternsList.png" alt="Custom Patterns List Screenshot" width="400"/>
 
 
 
@@ -68,12 +68,12 @@ https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
 - The app uses a combination of:
   - spaCy's built-in model (`en_core_web_sm`)
   - A custom `EntityRuler` inserted before the built-in NER (step 2)
-<img src="step3.png" alt="Step 3 Screenshot" width="400"/>
+<img src="images/step3.png" alt="Step 3 Screenshot" width="400"/>
 - Detected entities are shown in two ways:
   - A structured list of recognized entity-label pairs.
-<img src="EntitiesDetected.png" alt="Entities Detected Screenshot" width="400"/> 
+<img src="images/EntitiesDetected.png" alt="Entities Detected Screenshot" width="400"/> 
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
-<img src="DisplaCyExample.png" alt="DisplaCy Visualizer Example" width="400"/>
+<img src="images/DisplaCyExample.png" alt="DisplaCy Visualizer Example" width="400"/>
 
 
 ## References
