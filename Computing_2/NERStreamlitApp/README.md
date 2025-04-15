@@ -23,15 +23,18 @@ In addition to built-in NER, the app allows users to define custom entity patter
 
 #### Link to deployed version 
 https://mejia-python-portfolio-xc8cd8k6emvanofpqkrmqs.streamlit.app/
-
-### Required Libraries and Intsalation Commands
-- spaCy (and spaCys English model)
-	- import spacy
+import spacy
 nlp = spacy.load('en_core_web_sm')
 from spacy import displacy
-- streamlit
+
+### Required Libraries and Intsalation Commands
+- **spaCy (and spaCys English model)**
+	- import spacy
+    - nlp = spacy.load('en_core_web_sm')
+    - from spacy import displacy
+- **streamlit**
 	- import streamlit as st
-- pandas 
+- **pandas**
     - import pandas as pd
 
 
