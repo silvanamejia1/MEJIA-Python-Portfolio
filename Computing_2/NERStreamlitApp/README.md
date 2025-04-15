@@ -55,6 +55,7 @@ from spacy import displacy
   - `Label`: The category name(e.g., `MAJOR`, `YEAR`, `CLUBS`)
   - `Pattern`: Specific example of item in the category (e.g., `business analytics`, `junior`, `ALPFA`)
 <img src="step2.png" alt="Step 2 Screenshot" width="400"/>
+
 - Patterns are case-insensitive.
 - Duplicate patterns are not re-recorded.
 - If a pattern is not added and “Add Pattern” is clicked warning message is displayed
