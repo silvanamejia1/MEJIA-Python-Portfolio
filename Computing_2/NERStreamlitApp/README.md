@@ -42,6 +42,7 @@ from spacy import displacy
 - Users can upload a `.txt` file or paste their own custom text into a text area.
 - A sample text is provided in the app to allow for initial exploration and guidance.
 - The uploaded or entered text is processed to extract named entities.
+- ![Alt text](/Users/silvanamejia/Documents/MEJIA-Python-Portfolio/Computing_2/NERStreamlitApp/Screenshot 2025-04-14 at 10.42.46 PM.png)
 
 ### Step 2: Define Custom Entities
 
