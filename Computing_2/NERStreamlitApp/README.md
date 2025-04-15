@@ -8,6 +8,7 @@ This app explores Named Entity Recognition (NER) using the spaCy library. The pu
 
 Going deeper into spaCys approached to NER, spaCy's trained pipelines combine statistical models and linguistic rules to identify entities such as names, organizations, and locations in context. The app uses spaCy’s default English pipeline (en_core_web_sm).
 In addition to built-in NER, the app allows users to define custom entity patterns using spaCy’s EntityRuler. The result is a blended system where both custom and pre-trained entities are visualized in the text. 	In the NERStreamlitApp, we push the text through the entity ruler first in order to highlight patterns before they are picked up by the NER pipeline. In the end both user generated patterns and entities are highlighted.
+
 ## Instructions
 
 ### Installation
@@ -45,8 +46,8 @@ from spacy import displacy
 ### Step 2: Define Custom Entities
 
 - Users define custom entities by entering:
-  - `Label` (e.g., `MAJOR`, `YEAR`, `CLUBS`)
-  - `Pattern` (e.g., `business analytics`, `junior`, `ALPFA`)
+  - `Label`: The category name(e.g., `MAJOR`, `YEAR`, `CLUBS`)
+  - `Pattern`: Specific example of item in the category (e.g., `business analytics`, `junior`, `ALPFA`)
 - Patterns are case-insensitive.
 - Duplicate patterns are not re-recorded.
 - All added patterns are displayed in a list with the option to clear them.
@@ -62,3 +63,4 @@ from spacy import displacy
   - Highlighted text using spaCy’s `displacy` visualizer embedded in Streamlit.
 
 ## References
+- Using the ['spaCy 101']('https://spacy.io/usage/spacy-101') website was extremily useful to understand how spaCy operates on the backend to recognize certains parts of text. This also helped me link to the way it connects to its NER feature and EntityRuler processing pipeline.
