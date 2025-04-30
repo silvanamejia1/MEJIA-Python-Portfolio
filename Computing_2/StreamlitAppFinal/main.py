@@ -108,5 +108,5 @@ if st.button(f"Show {breakdown_period} Breakdown"):
 
     ax.set_ylabel("Amount in USD ($)")
     ax.set_title(f"{breakdown_period} Allocation of Your Income")
-    fig.subplots_adjust(top=1) 
+    fig.subplots_adjust(top=2) 
     st.pyplot(fig)
