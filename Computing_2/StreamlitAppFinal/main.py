@@ -17,7 +17,7 @@ goal = st.selectbox("Savings Goal", ["Retirement", "Education", "Buying a Home",
 # Default asset allocation
 stocks = 60
 bonds = 30
-cash = 10
+alternatives = 10
 
 # Adjustments based on inputs
 #Age adjustment
@@ -39,7 +39,7 @@ elif risk_tolerance == "Low":
     bonds += 10
     stocks -= 10
 
-cash = 100 - (stocks + bonds)
+alternatives = 100 - (stocks + bonds)
 
 
 #Budget Plan
@@ -54,23 +54,15 @@ else:
     invest_pct = 20
     save_pct = 20
 
-#knowing what % of income will be spent in investing and saving, we know that  we still have essentials and "buffer money" to account for
-essentials_pct = 50 + (dependents * 5) #we are suppoing that 50% of income according to OPERS
+#Knowing what % of income will be spent in investing and saving, we know that  we still have essentials and "buffer money" to account for
+essentials_pct = 50 + (dependents * 5) #we are suppoing that 50% of income according to OPERS, however, we account for an additional % in the case where they have dependants
 
 # Ensure total % doesn't exceed 100
 total_allocated = essentials_pct + invest_pct + save_pct
 if total_allocated > 100:
     essentials_pct = 100 - (invest_pct + save_pct)
 
-# Now calculate fun percentage directly and clearly
-extra_pct = 100 - (essentials_pct + invest_pct + save_pct)
-
-# Cap essentials so total doesn't exceed 100%
-total_allocated = essentials_pct + invest_pct + save_pct
-if total_allocated > 100:
-    essentials_pct = 100 - (invest_pct + save_pct)
-
-# What's left goes to fun & other
+# Extra % is whatever is left over 
 extra_pct = 100 - (essentials_pct + invest_pct + save_pct)
 
 #Bar Graph showing Income Breakdown based on extra_pct, essentials_pct, invest_pct, save_pct)
@@ -125,3 +117,78 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     ax.set_title(f"{breakdown_period} Allocation of Your Income")
     fig.tight_layout(pad=2.5)
     st.pyplot(fig)
+
+
+ # 💼 Investment Allocation Section
+st.header("📈 How You Should Be Investing")
+
+# Rename 'cash' to 'alternatives' for this context
+alternatives = cash
+
+# Labels and values
+investment_labels = ['Stocks', 'Bonds', 'Alternatives']
+investment_values = [stocks, bonds, alternatives]
+
+# Blue gradient colors (light to dark)
+investment_colors = ['#AED9E0', '#5DADE2', '#154360']
+
+# Create pie chart
+fig_invest, ax_invest = plt.subplots()
+ax_invest.pie(
+    investment_values,
+    labels=investment_labels,
+    autopct='%1.1f%%',
+    startangle=90,
+    colors=investment_colors,
+    wedgeprops={'edgecolor': 'white'}
+)
+ax_invest.axis('equal')  # Make the pie circular
+st.pyplot(fig_invest)
+
+# Optional insight
+st.markdown(f"""
+Based on your inputs:
+- **{stocks}% Stocks**: Focused on long-term growth.
+- **{bonds}% Bonds**: Lower risk, steady returns.
+- **{alternatives}% Alternatives**: Emergency fund, real estate, or diversified instruments.
+""")
+
+import spacy
+from spacy import displacy
+
+nlp = spacy.load('en_core_web_sm')  # Load spaCy
+
+# 📌 Custom NER Section
+st.header("🧠 Stocks or Assets You're Interested In")
+
+# Text input for stock ideas
+user_stock_text = st.text_area("Are there any specific stocks or assets you're interested in buying?", height=150)
+
+# Create a default list of investment-related patterns (optional: use user-defined patterns later)
+investment_patterns = [
+    {"label": "STOCK", "pattern": "Apple"},
+    {"label": "STOCK", "pattern": "Tesla"},
+    {"label": "STOCK", "pattern": "NVIDIA"},
+    {"label": "ALTERNATIVE", "pattern": "real estate"},
+    {"label": "ALTERNATIVE", "pattern": "ETFs"},
+]
+
+# Only run if text is provided
+if user_stock_text.strip():
+    # Add the custom EntityRuler
+    ruler = nlp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
+    ruler.add_patterns(investment_patterns)
+
+    doc = nlp(user_stock_text)
+
+    # Show results
+    if doc.ents:
+        st.markdown("### 🔍 Detected Entities:")
+        for ent in doc.ents:
+            st.write(f"• **{ent.text}** → `{ent.label_}`")
+
+        # Visualize detected entities
+        html = displacy.render(doc, style="ent", page=True)
+        st.components.v1.html(html, height=250, scrolling=True)
+    else:
+        st.info("No investment-related entities detected in your input.")
