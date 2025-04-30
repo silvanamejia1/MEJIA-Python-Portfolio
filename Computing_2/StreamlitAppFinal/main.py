@@ -55,8 +55,26 @@ else:
     save_pct = 20
 
 #knowing what % of income will be spent in investing and saving, we know that 
-essentials_pct = 60
+essentials_pct = 50 #we are suppoing that 50% of income according to OPERS
 extra_pct = 100 - (essentials_pct + invest_pct + save_pct)
 
 #Bar Graph showing Income Breakdown based on extra_pct, essentials_pct, invest_pct, save_pct)
+st.header("📊 Where Your Money Goes Each Month")
 
+# Convert yearly percentages to monthly dollar values
+monthly_income = income / 12
+essentials_amt = monthly_income * (essentials_pct / 100)
+save_amt = monthly_income * (save_pct / 100)
+invest_amt = monthly_income * (invest_pct / 100)
+fun_amt = monthly_income * (extra_pct / 100)
+
+# Prepare data
+categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
+amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
+
+# Plot
+fig, ax = plt.subplots()
+ax.bar(categories, amounts)
+ax.set_ylabel("Amount in USD ($)")
+ax.set_title("Monthly Allocation of Your Income")
+st.pyplot(fig)
