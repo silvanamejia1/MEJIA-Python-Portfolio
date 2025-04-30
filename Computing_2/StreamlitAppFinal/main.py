@@ -59,22 +59,53 @@ essentials_pct = 50 #we are suppoing that 50% of income according to OPERS
 extra_pct = 100 - (essentials_pct + invest_pct + save_pct)
 
 #Bar Graph showing Income Breakdown based on extra_pct, essentials_pct, invest_pct, save_pct)
-st.header("📊 Where Your Money Goes Each Month")
+st.header("📊 Where Your Money Goes?")
 
-# Convert yearly percentages to monthly dollar values
+# 1. Breakdown period (year/moth)
+breakdown_period = st.radio("Select breakdown period:", ["Monthly", "Yearly"], horizontal=True)
+
+# 2. Calculate actual dollar amounts
 monthly_income = income / 12
-essentials_amt = monthly_income * (essentials_pct / 100)
-save_amt = monthly_income * (save_pct / 100)
-invest_amt = monthly_income * (invest_pct / 100)
-fun_amt = monthly_income * (extra_pct / 100)
+yearly_income = income
 
-# Prepare data
-categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
-amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
+if breakdown_period == "Monthly":
+    essentials_amt = monthly_income * (essentials_pct / 100)
+    save_amt = monthly_income * (save_pct / 100)
+    invest_amt = monthly_income * (invest_pct / 100)
+    fun_amt = monthly_income * (extra_pct / 100)
+else:
+    essentials_amt = yearly_income * (essentials_pct / 100)
+    save_amt = yearly_income * (save_pct / 100)
+    invest_amt = yearly_income * (invest_pct / 100)
+    fun_amt = yearly_income * (extra_pct / 100)
 
-# Plot
-fig, ax = plt.subplots()
-ax.bar(categories, amounts)
-ax.set_ylabel("Amount in USD ($)")
-ax.set_title("Monthly Allocation of Your Income")
-st.pyplot(fig)
+# 3. Show message with dollar values
+st.markdown(f"""
+Based on your income, here's how much you should ideally spend in a **{breakdown_period.lower()}**:
+- 🏠 Essentials: **${essentials_amt:,.2f}**
+- 💾 Saving: **${save_amt:,.2f}**
+- 📈 Investing: **${invest_amt:,.2f}**
+- 🎉 Fun & Other: **${fun_amt:,.2f}**
+""")
+
+# 4. Button to show chart
+if st.button(f"Show {breakdown_period} Breakdown"):
+    categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
+    amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
+    colors = ['#FFD580', '#FFAA5C', '#FF7F7F', '#FF4C4C']  # Sunset ombré shades
+
+    fig, ax = plt.subplots()
+    bars = ax.bar(categories, amounts, color=colors)
+
+    # Add dollar labels on top of bars
+    for bar in bars:
+        height = bar.get_height()
+        ax.annotate(f'${height:,.0f}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 5),
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+
+    ax.set_ylabel("Amount in USD ($)")
+    ax.set_title(f"{breakdown_period} Allocation of Your Income")
+    st.pyplot(fig)
