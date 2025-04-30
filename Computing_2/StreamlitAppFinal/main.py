@@ -54,8 +54,23 @@ else:
     invest_pct = 20
     save_pct = 20
 
-#knowing what % of income will be spent in investing and saving, we know that 
-essentials_pct = 50 #we are suppoing that 50% of income according to OPERS
+#knowing what % of income will be spent in investing and saving, we know that  we still have essentials and "buffer money" to account for
+essentials_pct = 50 + (dependents * 5) #we are suppoing that 50% of income according to OPERS
+
+# Ensure total % doesn't exceed 100
+total_allocated = essentials_pct + invest_pct + save_pct
+if total_allocated > 100:
+    essentials_pct = 100 - (invest_pct + save_pct)
+
+# Now calculate fun percentage directly and clearly
+extra_pct = 100 - (essentials_pct + invest_pct + save_pct)
+
+# Cap essentials so total doesn't exceed 100%
+total_allocated = essentials_pct + invest_pct + save_pct
+if total_allocated > 100:
+    essentials_pct = 100 - (invest_pct + save_pct)
+
+# What's left goes to fun & other
 extra_pct = 100 - (essentials_pct + invest_pct + save_pct)
 
 #Bar Graph showing Income Breakdown based on extra_pct, essentials_pct, invest_pct, save_pct)
