@@ -51,7 +51,7 @@ Whether you're new to investing or just want structured guidance, this app helps
 
 
 #### Link to deployed version
-FALTA ADD
+- [EasyInvest Deployed Version](https://silvanamejia1-mej-computing-2streamlitappfinaleasyinvest-84rkkm.streamlit.app)
 
 
 ---
@@ -137,6 +137,6 @@ Finally, the app offers tailored investment recommendations based on the calcula
 ## References & Resources
 
 - [Streamlit Documentation](https://docs.streamlit.io/)
-- [Matplotlib Documentation](https://matplotlib.org/stable/index.html)
+- [Investopedia Asset Class Explanation](https://www.investopedia.com/terms/a/assetclasses.asp)
 - [Investopedia S&P 500 Explanation](https://www.investopedia.com/terms/s/sp500.asp)
 
