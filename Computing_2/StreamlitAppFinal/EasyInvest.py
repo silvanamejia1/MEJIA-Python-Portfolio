@@ -136,7 +136,7 @@ with st.expander(f"Show {breakdown_period} Breakdown"):
 
 #Pie chart of investing breakdown
 st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
-if st.button("Show How I Should Be Investing"):
+with st.expander("Show How I Should Be Investing"):
 
     # Investment Allocation Section
     st.header("📈 How You Should Be Investing")
@@ -163,7 +163,7 @@ if st.button("Show How I Should Be Investing"):
 
 #Takeaway
 st.markdown("Now that you have an investment strategy, let's put it all together into your personalized plan:")
-if st.button("📊 See Your Personalized Investment Plan"):
+with st.expander("📊 See Your Personalized Investment Plan"):
     st.header("📌 Your Personalized Investment Plan")
 
     st.markdown(f"""
