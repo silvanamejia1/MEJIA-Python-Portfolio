@@ -2,6 +2,16 @@
 
 Welcome to my Python portfolio! This repository will include some of the code and projects that I will be working on during my **Elements of Computing II** class, as well as other projects that I work on as I pursue my degree in **Business Analytics** and **Computing**. My goal is to document and showcase my skills in Python through various coding challenges, data analysis tasks, and machine learning projects.
 
+## At a Glance
+
+This portfolio showcases my Python projects combining data analysis, interactive apps, and machine learning techniques. Explore each project below:
+- [Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/Class%20Assingments) – Coding exercises from Elements of Computing II.
+- [Homework](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Homework) –  Python practice and assignments.
+- [Basic Streamlit App](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/basic-streamlit-app) – Simple interactive app analyzing customer shopping trends.
+- [TidyData Project](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/TidyData_Project) – Data cleaning and visualization using tidy data principles.
+- [NER Streamlit App](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/NERStreamlitApp) – Custom Named Entity Recognition tool with interactive interface.
+- [EasyInvest Planner (Streamlit App Final)](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/StreamlitAppFinal) – Beginner-friendly financial planning app to help users create personalized investment plans.
+
 ## Repository Structure
 - **Computing II**: This folder contains the work I will be doing throughout the *Elements of Computing II* course.
     - **Class Assignments**: This subfolder includes assignments that I complete twice a week during class. [Link to In-Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/Class%20Assingments)
