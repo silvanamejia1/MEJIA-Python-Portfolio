@@ -1,6 +1,5 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-import numpy as np
 
 # Title
 st.title("💰 EasyInvest Planner")
@@ -21,11 +20,12 @@ This app takes into account your age, income, financial dependents, and risk pre
 
 Use the filters on the left to personalize your plan and click the buttons to see a clear visual breakdown of where your money should go and how you should invest.
 """)
-
+#SECTION 1: USER INPUTS
 # User Inputs Revelant to investment
 age = st.slider("Your Age", 18, 80, 30)
 income = st.number_input("Your Annual Income ($)", min_value=0, value=60000, step=1000)
 dependents = st.slider("Number of Financial Dependents", 0, 5, 0)
+
 # Calculate risk score based on user profile (This will give user some backround on their current risk profile given inputs but flexibility to change if they have more agressive investment goals)
 risk_score = 0
 
@@ -62,7 +62,7 @@ else:
     suggested_risk = "Low"
     risk_explanation = "Your profile suggests a lower risk tolerance to help preserve your capital and minimize potential losses, which is especially important with age or more dependents."
 
-# Display
+# Display explanation on how to choose risk level
 st.markdown(f"""
 **Not sure about your risk tolerance?**
 
@@ -74,6 +74,7 @@ Remember, this is only a suggestion based on your profile. You can freely adjust
 risk_tolerance = st.selectbox("Risk Tolerance", ["Low", "Medium", "High"])
 goal = st.selectbox("Savings Goal", ["Retirement", "Education", "Buying a Home", "Other"])
 
+#SECTION 2: BUDGET PLAN
 # Investemnt Calculations
 # Default asset allocation
 variable_income = 60
@@ -129,10 +130,10 @@ extra_pct = 100 - (essentials_pct + invest_pct + save_pct)
 #Bar Graph showing Income Breakdown based on extra_pct, essentials_pct, invest_pct, save_pct)
 st.header("📊 Where Your Money Goes?")
 
-# 1. Breakdown period (year/moth)
+# Breakdown period (year/moth) Selection
 breakdown_period = st.radio("Select breakdown period:", ["Monthly", "Yearly"], horizontal=True)
 
-# 2. Calculate actual dollar amounts
+# Calculate actual dollar amounts according to breakdown period selected
 monthly_income = income / 12
 yearly_income = income
 
@@ -147,7 +148,7 @@ else:
     invest_amt = yearly_income * (invest_pct / 100)
     fun_amt = yearly_income * (extra_pct / 100)
 
-# 3. Show message with dollar values
+# Show message with dollar values
 st.markdown(f"""
 Based on your income, here's how much you should ideally spend in a **{breakdown_period.lower()}**:
 - 🏠 Essentials: **${essentials_amt:,.2f}**
@@ -161,13 +162,13 @@ st.markdown("Before seeing the suggested plan, tell us how you're currently brea
 st.markdown(f"**Enter your spending amounts below based on your selected breakdown period ({breakdown_period}).**")
 st.markdown("Please round your entries to the nearest $100 to make calculations easier.")
 
-# User input for actual spending (you can set defaults based on suggested or leave blank)
+# User input for actual spending (default is set to 0)
 actual_essentials = st.number_input(f"How much do you spend on Essentials {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
 actual_saving = st.number_input(f"How much do you save {breakdown_period}?" , min_value=0.0, value=0.0, step=100.0)
 actual_investing = st.number_input(f"How much do you invest {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
 actual_fun = st.number_input(f"How much do you spend on Fun & Other {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
 
-# 4. Button to show bar chart of income breakdown (will be side by side chart comapring their actual breakdown vs ideal breakdown)
+# Exapnder Button to show bar chart of income breakdown (will be side by side chart comapring their actual breakdown vs ideal breakdown)
 with st.expander(f"Show {breakdown_period} Breakdown"):
 
     # Categories
@@ -181,7 +182,7 @@ with st.expander(f"Show {breakdown_period} Breakdown"):
 
     # Bar positions
     x = range(len(categories))
-    width = 0.35  # Width of each bar
+    width = 0.35 
 
     fig, ax = plt.subplots(figsize=(10, 7))
 
@@ -209,19 +210,18 @@ with st.expander(f"Show {breakdown_period} Breakdown"):
     fig.tight_layout(pad=4)
     st.pyplot(fig)
 
+## STEP 3: INVESTMENT BREAKDOWN
 #Pie chart of investing breakdown
 st.markdown("## 🧩 Structuring Your Investments")
 st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
-with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so that other information stays after click
+with st.expander("Show How I Should Be Investing"):#st.exapnder over button so that other information stays after click
 
-    # Investment Allocation Section
+    # Investment Allocation Suggestion
     st.header("📈 How You Should Be Investing")
 
     # Labels and values
     investment_labels = ['Variable Income', 'Fixed Income', 'Alternatives']
     investment_values = [variable_income, fixed_income, alternatives]
-
-    # I choose colors that are different from the first bar graph to avoid confusion
     investment_colors = ['#AED9E0', '#5DADE2', '#154360']
 
     # Create pie chart
@@ -231,11 +231,12 @@ with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so t
         labels=investment_labels, #labels that goes with each %
         autopct='%1.1f%%', #One decimal place to improve readability
         colors=investment_colors, #define the same colors as before
-        wedgeprops={'edgecolor': 'white'} #define teh edges of each pie to be able to separate slices
+        wedgeprops={'edgecolor': 'white'} #define the edges of each pie to be able to separate slices
     )
     ax_invest.axis('equal')  # Make the pie circular
     st.pyplot(fig_invest) #tie into streamlit app
 
+## STEP 4: ASSET CLASS EXPLANATION
 #Asset class expalnation
 st.markdown("### ❓ What do these investment types mean?") 
 st.markdown("Understanding how Variable Income, Fixed Income, and Alternatives contribute to your portafolio is key to making informed decisions. Explore the sections below to learn more about each type of investment.")
