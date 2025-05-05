@@ -167,26 +167,45 @@ actual_saving = st.number_input(f"How much do you save {breakdown_period}?" , mi
 actual_investing = st.number_input(f"How much do you invest {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
 actual_fun = st.number_input(f"How much do you spend on Fun & Other {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
 
-# 4. Button to show bar chart of income breakdown
+# 4. Button to show bar chart of income breakdown (will be side by side chart comapring their actual breakdown vs ideal breakdown)
 with st.expander(f"Show {breakdown_period} Breakdown"):
+
+    # Categories
     categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
-    amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
-    colors = ['#FFD580', '#FFAA5C', '#FF7F7F', '#FF4C4C']  # Sunset ombré shades
 
-    fig, ax = plt.subplots(figsize=(10, 9))
-    bars = ax.bar(categories, amounts, color=colors)
+    # Ideal amounts (recommended breakdown)
+    ideal_amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
 
-    # Add dollar labels on top of bars
-    for bar in bars:
+    # Actual amounts (user input)
+    actual_amounts = [actual_essentials, actual_saving, actual_investing, actual_fun]
+
+    # Bar positions
+    x = range(len(categories))
+    width = 0.35  # Width of each bar
+
+    fig, ax = plt.subplots(figsize=(10, 7))
+
+    # Plot ideal amounts
+    bars_ideal = ax.bar([p - width/2 for p in x], ideal_amounts, width=width, label='Suggested', color='#FFB347')
+
+    # Plot actual amounts
+    bars_actual = ax.bar([p + width/2 for p in x], actual_amounts, width=width, label='Actual', color='#5DADE2')
+
+    # Add labels on top of bars
+    for bar in bars_ideal + bars_actual:
         height = bar.get_height()
         ax.annotate(f'${height:,.0f}',
                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 9),
+                    xytext=(0, 5),
                     textcoords="offset points",
                     ha='center', va='bottom')
 
     ax.set_ylabel("Amount in USD ($)")
-    ax.set_title(f"{breakdown_period} Allocation of Your Income")
+    ax.set_title(f"{breakdown_period} Allocation: Suggested vs. Actual Spending")
+    ax.set_xticks(list(x))
+    ax.set_xticklabels(categories)
+    ax.legend()
+
     fig.tight_layout(pad=4)
     st.pyplot(fig)
 
