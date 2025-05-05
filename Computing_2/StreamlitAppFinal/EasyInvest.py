@@ -112,7 +112,7 @@ Based on your income, here's how much you should ideally spend in a **{breakdown
 """)
 
 # 4. Button to show bar chart of income breakdown
-if st.button(f"Show {breakdown_period} Breakdown"):
+if st.expander(f"Show {breakdown_period} Breakdown"):
     categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
     amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
     colors = ['#FFD580', '#FFAA5C', '#FF7F7F', '#FF4C4C']  # Sunset ombré shades
