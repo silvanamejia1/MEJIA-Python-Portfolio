@@ -101,7 +101,7 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
     colors = ['#FFD580', '#FFAA5C', '#FF7F7F', '#FF4C4C']  # Sunset ombré shades
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 8))
     bars = ax.bar(categories, amounts, color=colors)
 
     # Add dollar labels on top of bars
