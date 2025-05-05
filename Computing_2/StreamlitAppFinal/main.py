@@ -10,13 +10,13 @@ Welcome to **Smart Invest Plan** — your personalized tool to help you better p
 
 This app takes into account your age, income, financial dependents, and risk preferences to give you two key recommendations:
 - **How to allocate your income** → Essentials, Savings, Investing, and Fun/Other.
-- **How to invest your investment portion** → Stocks, Bonds, and Alternatives.
+- **How to invest your investment portion** → Variable Income, Fixed Income, and Alternatives.
 
 ### 📌 How do filters affect my plan?
-- **Age** → Younger users are recommended to take more investment risk (more variable income). Older users shift toward safer options (more bonds).
+- **Age** → Younger users are recommended to take more investment risk (more variable income). Older users shift toward safer options (more Fixed Income).
 - **Income** → Higher income allows for higher saving and investing percentages.
-- **Dependents** → More dependents means safer allocations (less stock, more bonds) and slightly higher essential expenses. This supposes taht a higher % of your income would go towards essential for otehr members in your family.
-- **Risk Tolerance** → If you prefer higher risk, your portfolio will lean more toward stocks. If lower, toward bonds. Answer this based on personal preference.
+- **Dependents** → More dependents means safer allocations (less variable Income, more Fixed Income) and slightly higher essential expenses. This supposes taht a higher % of your income would go towards essential for otehr members in your family.
+- **Risk Tolerance** → If you prefer higher risk, your portfolio will lean more toward Variable. If lower, toward Fixed Income. Answer this based on personal preference.
 - **Savings Goal** → While not changing calculations directly, it helps frame your investment mindset.
 
 Use the filters on the left to personalize your plan and click the buttons to see a clear visual breakdown of where your money should go and how you should invest.
@@ -31,31 +31,31 @@ goal = st.selectbox("Savings Goal", ["Retirement", "Education", "Buying a Home",
 
 # Investemnt Calculations
 # Default asset allocation
-stocks = 60
-bonds = 30
+variable_income = 60
+fixed_income = 30
 alternatives = 10
 
 # Adjustments based on inputs
 #Age adjustment
 #Asummes younger individuals have higher risk tolerance and therefore can afford higher risk invetsments that dont necesarily pay as fast (Equity Assets)
 if age < 30: #If they are below 30, we assume a higher risk tolerance compared to default and reccomend more equity
-    stocks += 10
+    variable_income += 10
 elif age > 50:
-    bonds += 10 #If they are above, we assume a lower risk tolerance compared to default and reccomend more fixed income
+    fixed_income += 10 #If they are above, we assume a lower risk tolerance compared to default and reccomend more fixed income
 
 if dependents >= 2: #More dependents, means less risk tolerance and a need for a safer investemnt plan meaning switch from equity to fixed income
-    bonds += 10
-    stocks -= 10
+    fixed_income += 10
+    variable_income -= 10
 
 #Despite oen ssituation, some might still have a persona; prefernece towards riskier, higehr return portafolios
 if risk_tolerance == "High":
-    stocks += 10
-    bonds -= 10
+    variable_income += 10
+    fixed_income -= 10
 elif risk_tolerance == "Low":
-    bonds += 10
-    stocks -= 10
+    fixed_income += 10
+    variable_income -= 10
 
-alternatives = 100 - (stocks + bonds)
+alternatives = 100 - (variable_income + fixed_income)
 
 
 #Budget Plan
@@ -141,8 +141,8 @@ if st.button("Show How I Should Be Investing"):
     st.header("📈 How You Should Be Investing")
 
     # Labels and values
-    investment_labels = ['Stocks', 'Bonds', 'Alternatives']
-    investment_values = [stocks, bonds, alternatives]
+    investment_labels = ['Variable Income', 'Fixed Income', 'Alternatives']
+    investment_values = [variable_income, fixed_income, alternatives]
 
     # I choose colors that are different from the first bar graph to avoid confusion
     investment_colors = ['#AED9E0', '#5DADE2', '#154360']
@@ -162,8 +162,8 @@ if st.button("Show How I Should Be Investing"):
     # This insight is meant to give backround on the why beahind investment desicions in a way that is wasy to undertsand for an individual without prior finance knowledge 
     st.markdown(f"""
     Based on your inputs:
-    - **{stocks}% Stocks**: Higher risk, Focused on long-term growth.
-    - **{bonds}% Bonds**: Lower risk, steady returns.
+    - **{variable_income }% Variable Income**: Higher risk, Focused on long-term growth.
+    - **{fixed_income}% Fixed Income**: Lower risk, steady returns.
     - **{alternatives}% Alternatives**: Diversify your portfolio.
     """)
 import spacy
@@ -173,7 +173,7 @@ nlp = spacy.load('en_core_web_sm')  # Load spaCy
 
 
 # 📌 Custom Investment Pattern Section
-st.header("🧠 Stocks or Assets You're Interested In")
+st.header("🧠 Assets You're Interested In for Investing")
 
 # Initialize pattern list if not exist
 if "custom_investment_patterns" not in st.session_state:
@@ -184,28 +184,30 @@ col1, col2 = st.columns(2)
 with col1:
     custom_pattern = st.text_input("Investment Name (ex: Google)", key="custom_pattern_input")
 with col2:
-    # Added BOND here
-    custom_label = st.selectbox("Investment Type", ["STOCK", "BOND", "ALTERNATIVE"], key="custom_label_input")
+    custom_label = st.selectbox("Investment Type", ["VARIABLE INCOME", "FIXED INCOME", "ALTERNATIVE"], key="custom_label_input")
 
 if st.button("Add Pattern"):
     if custom_pattern:
+        # Add new pattern to session state
         new_pattern = {"label": custom_label, "pattern": custom_pattern}
         st.session_state.custom_investment_patterns.append(new_pattern)
         st.success(f"Added: {custom_pattern} as {custom_label}")
 
-        # ---- Immediately show EXAMPLE after adding ----
+        # Load temporary spaCy model for visualization
         nlp_temp = spacy.load("en_core_web_sm")
         ruler_temp = nlp_temp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
 
-        # ONLY user patterns
+        # Add only user-defined patterns
         ruler_temp.add_patterns(st.session_state.custom_investment_patterns)
 
-        # Build example sentence (smart way → combine all added patterns into one string)
+        # Build example sentence using all added patterns
         example_investments = [p["pattern"] for p in st.session_state.custom_investment_patterns]
         example_text = "Example: " + ", ".join(example_investments) + "."
 
+        # Process the example sentence
         doc_temp = nlp_temp(example_text)
 
+        # Show how patterns will be detected
         st.markdown("### 📌 Example - How Your Patterns Will Be Detected:")
         html = displacy.render(doc_temp, style="ent", page=True)
         st.components.v1.html(html, height=200, scrolling=True)
