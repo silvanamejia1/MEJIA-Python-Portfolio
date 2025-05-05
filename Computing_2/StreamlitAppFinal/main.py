@@ -109,7 +109,7 @@ if st.button(f"Show {breakdown_period} Breakdown"):
         height = bar.get_height()
         ax.annotate(f'${height:,.0f}',
                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 8),
+                    xytext=(0, 9),
                     textcoords="offset points",
                     ha='center', va='bottom')
 
