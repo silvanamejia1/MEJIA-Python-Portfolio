@@ -14,7 +14,7 @@ This portfolio showcases my Python projects combining data analysis, interactive
 
 ## Repository Structure
 - **Computing II**: This folder contains the work I will be doing throughout the *Elements of Computing II* course.
-    - **Class Assignments**: This subfolder includes assignments that I complete twice a week during class. [Link to In-Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Class%20Assingments)
+    - **Class Assignments**: This subfolder includes assignments that I complete twice a week during class. [Link to In-Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Class_Assingments)
 
     - **Homework**: This folder contains additional assignments completed as part of the *Elements of Computing II* course. These homeworks reflect key concepts we've worked on in class and demonstrate my progression throughout the semester.
         - The [`Homework`](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Homework) folder includes a variety of coding exercises specificaly using spaCy and Python. 
