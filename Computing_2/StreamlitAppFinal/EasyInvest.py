@@ -6,7 +6,7 @@ import numpy as np
 st.title("💰 EasyInvest Planner")
 st.subheader("Personalized financial planning made easy")
 st.markdown("""
-Welcome to **EasyInvest Planner ** — your personalized tool to help you better plan your income allocation and investment strategy. 🎯
+Welcome to **EasyInvest Planner **. Your personalized tool to help you better plan your income allocation and investment strategy. 🎯
 
 This app takes into account your age, income, financial dependents, and risk preferences to give you two key recommendations:
 - **How to allocate your income** → Essentials, Savings, Investing, and Fun/Other.
