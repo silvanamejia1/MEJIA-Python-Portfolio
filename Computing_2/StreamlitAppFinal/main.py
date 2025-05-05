@@ -166,11 +166,15 @@ if st.button("Show How I Should Be Investing"):
     - **{fixed_income}% Fixed Income**: Lower risk, steady returns.
     - **{alternatives}% Alternatives**: Diversify your portfolio.
     """)
+
+#Custom entity Patterns
 import spacy
 from spacy import displacy
 
 nlp = spacy.load('en_core_web_sm')  # Load spaCy
 
+# Add entity ruler (so we can add patterns later)
+ruler = nlp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
 
 # 📌 Custom Investment Pattern Section
 st.header("🧠 Assets You're Interested In for Investing")
@@ -191,6 +195,10 @@ if st.button("Add Pattern"):
         # Add new pattern to session state
         new_pattern = {"label": custom_label, "pattern": custom_pattern}
         st.session_state.custom_investment_patterns.append(new_pattern)
+
+        # Also add to the entity ruler so spaCy will recognize it
+        ruler.add_patterns([new_pattern])
+
         st.success(f"Added: {custom_pattern} as {custom_label}")
     else:
         st.warning("Please enter an investment name.")
@@ -199,7 +207,7 @@ if st.button("See My Personalized Investment Plan"):
 
     st.header("🎯 Your Personalized Investment Plan")
 
-    # Show recommended percentages (based on current calculated allocation)
+    # Show recommended percentages (you need to define variable_income, fixed_income, alternatives somewhere)
     st.markdown(f"""
     **Recommended Investment Allocation:**
     - 📈 Variable Income: **{variable_income}%**
@@ -209,7 +217,7 @@ if st.button("See My Personalized Investment Plan"):
 
     # Build sentence again with all user-added patterns
     patterns_text = ", ".join([p["pattern"] for p in st.session_state.custom_investment_patterns])
-    doc_temp = nlp_temp(patterns_text)
+    doc_temp = nlp(patterns_text)  # ✅ USE nlp, now with entity ruler patterns added!
 
     # Group again by category
     grouped = {
@@ -219,9 +227,9 @@ if st.button("See My Personalized Investment Plan"):
     }
 
     for ent in doc_temp.ents:
-        if ent.label_ == "VARIABLE_INCOME":
+        if ent.label_ == "VARIABLE INCOME":
             grouped["Variable Income"].append(ent.text)
-        elif ent.label_ == "FIXED_INCOME":
+        elif ent.label_ == "FIXED INCOME":
             grouped["Fixed Income"].append(ent.text)
         elif ent.label_ == "ALTERNATIVE":
             grouped["Alternatives"].append(ent.text)
