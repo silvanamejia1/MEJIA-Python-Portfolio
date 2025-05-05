@@ -31,11 +31,11 @@ risk_score = 0
 
 # Age Factor
 if age < 30:
-    risk_score += 2  # Younger → Higher risk appetite
+    risk_score += 2  # Younger → Higher risk 
 elif age < 50:
     risk_score += 1  # Middle-aged → Moderate
 else:
-    risk_score -= 1  # Older → Lower risk appetite
+    risk_score -= 1  # Older → Lower risk 
 
 # Income Factor
 if income >= 150000:
@@ -69,7 +69,7 @@ st.markdown(f"""
 Based on your profile (Age: {age}, Income: ${income:,}, Dependents: {dependents}), you may fall into a **{suggested_risk} Risk Tolerance** category.  
 {risk_explanation}
 
-Remember, this is only a suggestion based on your profile — you can freely adjust this to match your personal comfort and investment philosophy.
+Remember, this is only a suggestion based on your profile. You can freely adjust this to match your personal comfort and investment goals.
 """)
 risk_tolerance = st.selectbox("Risk Tolerance", ["Low", "Medium", "High"])
 goal = st.selectbox("Savings Goal", ["Retirement", "Education", "Buying a Home", "Other"])
@@ -155,6 +155,15 @@ Based on your income, here's how much you should ideally spend in a **{breakdown
 - 📈 Investing: **${invest_amt:,.2f}**
 - 🎉 Fun & Other: **${fun_amt:,.2f}**
 """)
+
+#Compare to actual spending values
+st.markdown("Before comparing with the suggested plan, tell us how you're currently breaking down your income:")
+
+# User input for actual spending (you can set defaults based on suggested or leave blank)
+actual_essentials = st.number_input("How much do you spend on Essentials per month?", min_value=0.0, value=0.0, step=100.0)
+actual_saving = st.number_input("How much do you save per month?", min_value=0.0, value=0.0, step=100.0)
+actual_investing = st.number_input("How much do you invest per month?", min_value=0.0, value=0.0, step=100.0)
+actual_fun = st.number_input("How much do you spend on Fun & Other per month?", min_value=0.0, value=0.0, step=100.0)
 
 # 4. Button to show bar chart of income breakdown
 with st.expander(f"Show {breakdown_period} Breakdown"):
