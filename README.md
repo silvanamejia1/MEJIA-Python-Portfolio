@@ -5,6 +5,9 @@ Welcome to my Python portfolio! This repository will include some of the code an
 ## Repository Structure
 - **Computing II**: This folder contains the work I will be doing throughout the *Elements of Computing II* course.
     - **Class Assignments**: This subfolder includes assignments that I complete twice a week during class. [Link to In-Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/Class%20Assingments)
+
+    - **Homework**: This folder contains additional assignments completed as part of the *Elements of Computing II* course. These homeworks reflect key concepts we've worked on in class and demonstrate my progression throughout the semester.
+        - The [`Homework`](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Homework) folder includes a variety of coding exercises specificaly using spaCy and Python. 
     
     - **basic-streamlit-app**: This folder includes projects that I have done both in class and projects that I am currently working on. Everything in this folder represents work I have done using **Streamlit**.
         - The [`main.py`](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/blob/main/Computing%20II/basic-streamlit-app/main.py) script inside this folder contains a basic Streamlit app that I created to analyze customer shopping trends interactively. 
@@ -21,5 +24,4 @@ Welcome to my Python portfolio! This repository will include some of the code an
     - **StreamlitAppFinal - EasyInvest App**: This folder contains an interactive financial planning app built using **Streamlit**. Inspired by my interest in finance and personal experience as a beginner investor, this app helps users easily understand how to allocate their income and build a personalized investment plan. Users can input key details like age, income, dependents, and risk tolerance to receive tailored recommendations, interactive visualizations, and beginner-friendly investment guidance. This project strengthens my portfolio by demonstrating how I can leverage **Python and Streamlit to design seamless and intuitive user experiences**. Through the app's interactive filters, clear visuals, and actionable investment suggestions, I show my ability to transform complex financial concepts into accessible tools. This tool seeks to respond to the lack of beginner-friendly financial planning apps and serves as a solution that adresses real user needs.
         - The [`StreamlitAppFinal`](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/blob/main/Computing_2/StreamlitAppFinal/README.md) folder includes the full Streamlit app script and a detailed [`README.md`](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/blob/main/Computing_2/StreamlitAppFinal/README.md) with setup instructions, feature explanations, and app usage examples.
 
-    - **Homework**: This folder contains additional assignments completed as part of the *Elements of Computing II* course. These homeworks reflect key concepts we've worked on in class and demonstrate my progression throughout the semester.
-        - The [`Homework`](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Homework) folder includes a variety of coding exercises specificaly using spaCy and Python. 
+    
