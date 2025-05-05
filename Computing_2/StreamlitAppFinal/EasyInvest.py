@@ -161,13 +161,13 @@ with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so t
     st.pyplot(fig_invest) #tie into streamlit app
 
 #Asset class expalnation
-st.markdown("### What do these investment types mean?") 
+st.markdown("### ❓ What do these investment types mean?") 
 st.markdown("Understanding how Variable Income, Fixed Income, and Alternatives contribute to your portafolio is key to making informed decisions. Explore the sections below to learn more about each type of investment.")
 
 # Explanation of Variable Income
 with st.expander("What is Variable Income?"):
      st.markdown("""
-Variable income investments are assets where returns can fluctuate depending on market performance. They tend to offer higher growth potential but also more volatility.
+Variable income investments are assets where returns can fluctuate depending on market performance. They tend to offer **higher growth potential but also more volatility.**
 
 **How it impacts your portfolio:**  
 Increases your potential for long-term growth, but adds more risk. Suitable when you're younger or willing to take more risk.
@@ -181,7 +181,7 @@ Increases your potential for long-term growth, but adds more risk. Suitable when
 # Explanation of Fixed Income
 with st.expander("What is Fixed Income?"):
         st.markdown("""
-Fixed income investments provide stable and predictable returns, making them lower-risk options. These investments help preserve your capital and offer steady income.
+Fixed income investments provide stable and predictable returns, making them **lower-risk options.** These investments help preserve your capital and offer steady income.
 
 **How it impacts your portfolio:**  
 Reduces risk and volatility, while ensuring you have consistent returns. Especially important as you get closer to retirement or have lower risk tolerance.
@@ -195,7 +195,7 @@ Reduces risk and volatility, while ensuring you have consistent returns. Especia
 # Explanation of Alternatives
 with st.expander("What are Alternatives?"):
     st.markdown("""
-Alternatives include investments that are outside of traditional stocks and bonds. They help diversify your portfolio and often behave differently in various market conditions.
+Alternatives include investments that are outside of traditional stocks and bonds. Despite being **risky**, they **help diversify your portfolio** and often behave differently in various market conditions.
 
 **How it impacts your portfolio:**  
 Helps reduce overall risk through diversification and can offer unique growth opportunities not tied to the stock or bond market.
