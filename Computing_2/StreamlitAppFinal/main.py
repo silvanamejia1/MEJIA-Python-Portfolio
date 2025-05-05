@@ -207,14 +207,11 @@ if st.button("See My Personalized Investment Plan"):
 
     # Prepare lists by type
     variable_income = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "STOCK"]
-    fixed_income = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "BOND"]
+    fixed_income = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "FIXED INCOME"]
     alternatives = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "ALTERNATIVE"]
 
     st.header("📌 Your Personalized Investment Suggestions")
 
-    # Display recommendations
-    st.markdown("**Your Variable Income investments should be:** " + (", ".join(variable_income) if variable_income else "None added."))
-
-    st.markdown("**Your Fixed Income investments should be:** " + (", ".join(fixed_income) if fixed_income else "None added."))
-
-    st.markdown("**Your Alternative investments should be:** " + (", ".join(alternatives) if alternatives else "None added."))
+    st.markdown("**📈 Your Variable Income investments should be:** " + (", ".join(variable_income) if variable_income else "None added."))
+    st.markdown("**🏦 Your Fixed Income investments should be:** " + (", ".join(fixed_income) if fixed_income else "None added."))
+    st.markdown("**🌍 Your Alternative investments should be:** " + (", ".join(alternatives) if alternatives else "None added."))
