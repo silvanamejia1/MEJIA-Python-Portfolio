@@ -112,13 +112,6 @@ Based on your income, here's how much you should ideally spend in a **{breakdown
 """)
 
 # 4. Button to show bar chart of income breakdown
-# But first I crete session state so user has to click see breakdon before seeing spending and summary
-# Initialize state if not already
-if "show_breakdown" not in st.session_state:
-    st.session_state.show_breakdown = False
-if "show_investing" not in st.session_state:
-    st.session_state.show_investing = False
-
 if st.button(f"Show {breakdown_period} Breakdown"):
     categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
     amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
@@ -142,13 +135,6 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     st.pyplot(fig)
 
 #Pie chart of investing breakdown
-if st.button("Show How I Should Be Investing"):
-    if not st.session_state.show_breakdown:
-        st.warning("Please view your spending breakdown first.")
-    else:
-        st.session_state.show_investing = True
-
-if st.session_state.show_investing:
 st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
 if st.button("Show How I Should Be Investing"):
 
@@ -173,6 +159,7 @@ if st.button("Show How I Should Be Investing"):
     )
     ax_invest.axis('equal')  # Make the pie circular
     st.pyplot(fig_invest) #tie into streamlit app
+
 
 #Takeaway
 st.markdown("Now that you have an investment strategy, let's put it all together into your personalized plan:")
