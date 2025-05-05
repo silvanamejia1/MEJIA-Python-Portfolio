@@ -192,42 +192,50 @@ if st.button("Add Pattern"):
         new_pattern = {"label": custom_label, "pattern": custom_pattern}
         st.session_state.custom_investment_patterns.append(new_pattern)
         st.success(f"Added: {custom_pattern} as {custom_label}")
-
-        # Load temporary spaCy model for visualization
-        nlp_temp = spacy.load("en_core_web_sm")
-        ruler_temp = nlp_temp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
-
-        # Add only user-defined patterns
-        ruler_temp.add_patterns(st.session_state.custom_investment_patterns)
-
-        # Build joined string with all patterns to test detection
-        patterns_text = ", ".join([p["pattern"] for p in st.session_state.custom_investment_patterns])
-        doc_temp = nlp_temp(patterns_text)
-
-        # 📌 Show Takeaway grouped by category
-        takeaway = {
-            "Variable Income": [],
-            "Fixed Income": [],
-            "Alternatives": []
-        }
-
-        for ent in doc_temp.ents:
-            if ent.label_ == "VARIABLE_INCOME":
-                takeaway["Variable Income"].append(ent.text)
-            elif ent.label_ == "FIXED_INCOME":
-                takeaway["Fixed Income"].append(ent.text)
-            elif ent.label_ == "ALTERNATIVE":
-                takeaway["Alternatives"].append(ent.text)
-
-        st.markdown("### 📌 Takeaway:")
-
-        for category, items in takeaway.items():
-            if items:
-                st.markdown(f"**{category}:** " + ", ".join(items))
-
-        # Visualize detected entities
-        html = displacy.render(doc_temp, style="ent", page=True)
-        st.components.v1.html(html, height=200, scrolling=True)
-
     else:
         st.warning("Please enter an investment name.")
+
+if st.button("See My Personalized Investment Plan"):
+
+    st.header("🎯 Your Personalized Investment Plan")
+
+    # Show recommended percentages (based on current calculated allocation)
+    st.markdown(f"""
+    **Recommended Investment Allocation:**
+    - 📈 Variable Income: **{variable_income}%**
+    - 🏦 Fixed Income: **{fixed_income}%**
+    - 🌐 Alternatives: **{alternatives}%**
+    """)
+
+    # Build sentence again with all user-added patterns
+    patterns_text = ", ".join([p["pattern"] for p in st.session_state.custom_investment_patterns])
+    doc_temp = nlp_temp(patterns_text)
+
+    # Group again by category
+    grouped = {
+        "Variable Income": [],
+        "Fixed Income": [],
+        "Alternatives": []
+    }
+
+    for ent in doc_temp.ents:
+        if ent.label_ == "VARIABLE_INCOME":
+            grouped["Variable Income"].append(ent.text)
+        elif ent.label_ == "FIXED_INCOME":
+            grouped["Fixed Income"].append(ent.text)
+        elif ent.label_ == "ALTERNATIVE":
+            grouped["Alternatives"].append(ent.text)
+
+    # Show custom pattern list
+    st.markdown("**Assets You Selected for Each Category:**")
+
+    for category, items in grouped.items():
+        if items:
+            st.markdown(f"**{category}:** " + ", ".join(items))
+        else:
+            st.markdown(f"**{category}:** None selected.")
+
+    # Show displacy view for easy visual summary
+    st.markdown("**Visual Summary:**")
+    html = displacy.render(doc_temp, style="ent", page=True)
+    st.components.v1.html(html, height=250, scrolling=True)
