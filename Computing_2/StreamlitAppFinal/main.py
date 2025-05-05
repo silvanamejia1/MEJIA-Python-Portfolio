@@ -200,15 +200,32 @@ if st.button("Add Pattern"):
         # Add only user-defined patterns
         ruler_temp.add_patterns(st.session_state.custom_investment_patterns)
 
-        # Build example sentence using all added patterns
-        example_investments = [p["pattern"] for p in st.session_state.custom_investment_patterns]
-        example_text = "Example: " + ", ".join(example_investments) + "."
+        # Build joined string with all patterns to test detection
+        patterns_text = ", ".join([p["pattern"] for p in st.session_state.custom_investment_patterns])
+        doc_temp = nlp_temp(patterns_text)
 
-        # Process the example sentence
-        doc_temp = nlp_temp(example_text)
+        # 📌 Show Takeaway grouped by category
+        takeaway = {
+            "Variable Income": [],
+            "Fixed Income": [],
+            "Alternatives": []
+        }
 
-        # Show how patterns will be detected
-        st.markdown("### 📌 Example - How Your Patterns Will Be Detected:")
+        for ent in doc_temp.ents:
+            if ent.label_ == "VARIABLE_INCOME":
+                takeaway["Variable Income"].append(ent.text)
+            elif ent.label_ == "FIXED_INCOME":
+                takeaway["Fixed Income"].append(ent.text)
+            elif ent.label_ == "ALTERNATIVE":
+                takeaway["Alternatives"].append(ent.text)
+
+        st.markdown("### 📌 Takeaway:")
+
+        for category, items in takeaway.items():
+            if items:
+                st.markdown(f"**{category}:** " + ", ".join(items))
+
+        # Visualize detected entities
         html = displacy.render(doc_temp, style="ent", page=True)
         st.components.v1.html(html, height=200, scrolling=True)
 
