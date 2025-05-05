@@ -26,17 +26,50 @@ Use the filters on the left to personalize your plan and click the buttons to se
 age = st.slider("Your Age", 18, 80, 30)
 income = st.number_input("Your Annual Income ($)", min_value=0, value=60000, step=1000)
 dependents = st.slider("Number of Financial Dependents", 0, 5, 0)
+# Calculate risk score based on user profile (This will give user some backround on their current risk profile given inputs but flexibility to change if they have more agressive investment goals)
+risk_score = 0
 
+# Age Factor
+if age < 30:
+    risk_score += 2  # Younger → Higher risk appetite
+elif age < 50:
+    risk_score += 1  # Middle-aged → Moderate
+else:
+    risk_score -= 1  # Older → Lower risk appetite
+
+# Income Factor
+if income >= 150000:
+    risk_score += 2
+elif income >= 70000:
+    risk_score += 1
+else:
+    risk_score -= 1
+
+# Dependents Factor
+if dependents >= 3:
+    risk_score -= 2
+elif dependents >= 1:
+    risk_score -= 1
+
+# Final suggested risk category
+if risk_score >= 3:
+    suggested_risk = "High"
+    risk_explanation = "Given your younger age and/or higher income and fewer dependents, you may have the flexibility to take on more risk for higher potential returns."
+elif risk_score >= 0:
+    suggested_risk = "Medium"
+    risk_explanation = "Your profile suggests a balanced approach, aiming for growth while maintaining some stability."
+else:
+    suggested_risk = "Low"
+    risk_explanation = "Your profile suggests a lower risk tolerance to help preserve your capital and minimize potential losses, which is especially important with age or more dependents."
+
+# Display
 st.markdown(f"""
 **Not sure about your risk tolerance?**
 
-Based on your current profile (Age: {age}, Income: ${income:,}, Dependents: {dependents}), you might typically fall under a **{"Low" if age >= 50 or dependents >= 2 else "Medium" if income < 100000 else "High"} Risk Tolerance** category.
+Based on your profile (Age: {age}, Income: ${income:,}, Dependents: {dependents}), you may fall into a **{suggested_risk} Risk Tolerance** category.  
+{risk_explanation}
 
-However, risk tolerance is personal. Feel free to adjust this based on your comfort and investing goals.
-
-Keep in mind:
-- Higher risk tolerances may offer higher returns, but come with greater exposure to losses.
-- Lower risk tolerances are generally safer, but may offer slower growth.
+Remember, this is only a suggestion based on your profile — you can freely adjust this to match your personal comfort and investment philosophy.
 """)
 risk_tolerance = st.selectbox("Risk Tolerance", ["Low", "Medium", "High"])
 goal = st.selectbox("Savings Goal", ["Retirement", "Education", "Buying a Home", "Other"])
