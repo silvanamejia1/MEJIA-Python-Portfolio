@@ -13,7 +13,7 @@ This app takes into account your age, income, financial dependents, and risk pre
 - **How to invest your investment portion** → Stocks, Bonds, and Alternatives.
 
 ### 📌 How do filters affect my plan?
-- **Age** → Younger users are recommended to take more investment risk (more stocks). Older users shift toward safer options (more bonds).
+- **Age** → Younger users are recommended to take more investment risk (more variable income). Older users shift toward safer options (more bonds).
 - **Income** → Higher income allows for higher saving and investing percentages.
 - **Dependents** → More dependents means safer allocations (less stock, more bonds) and slightly higher essential expenses. This supposes taht a higher % of your income would go towards essential for otehr members in your family.
 - **Risk Tolerance** → If you prefer higher risk, your portfolio will lean more toward stocks. If lower, toward bonds. Answer this based on personal preference.
@@ -134,7 +134,7 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     fig.tight_layout(pad=4)
     st.pyplot(fig)
 
-#5. Button to show pie chart of investing breakdown
+#Pie chart of investing breakdown
 if st.button("Show How I Should Be Investing"):
 
     # Investment Allocation Section
@@ -166,43 +166,49 @@ if st.button("Show How I Should Be Investing"):
     - **{bonds}% Bonds**: Lower risk, steady returns.
     - **{alternatives}% Alternatives**: Diversify your portfolio.
     """)
-
 import spacy
 from spacy import displacy
 
 nlp = spacy.load('en_core_web_sm')  # Load spaCy
 
-# 📌 Custom NER Section
+
+# 📌 Custom Investment Pattern Section
 st.header("🧠 Stocks or Assets You're Interested In")
 
-# Text input for stock ideas
-user_stock_text = st.text_area("Are there any specific stocks or assets you're interested in buying?", height=150)
+# Initialize pattern list if not exist
+if "custom_investment_patterns" not in st.session_state:
+    st.session_state.custom_investment_patterns = []
 
-# Create a default list of investment-related patterns (optional: use user-defined patterns later)
-investment_patterns = [
-    {"label": "STOCK", "pattern": "Apple"},
-    {"label": "STOCK", "pattern": "Tesla"},
-    {"label": "STOCK", "pattern": "NVIDIA"},
-    {"label": "ALTERNATIVE", "pattern": "real estate"},
-    {"label": "ALTERNATIVE", "pattern": "ETFs"},
-]
+# Input for new investment pattern
+col1, col2 = st.columns(2)
+with col1:
+    custom_pattern = st.text_input("Investment Name (ex: Google)", key="custom_pattern_input")
+with col2:
+    # Added BOND here
+    custom_label = st.selectbox("Investment Type", ["STOCK", "BOND", "ALTERNATIVE"], key="custom_label_input")
 
-# Only run if text is provided
-if user_stock_text.strip():
-    # Add the custom EntityRuler
-    ruler = nlp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
-    ruler.add_patterns(investment_patterns)
+if st.button("Add Pattern"):
+    if custom_pattern:
+        new_pattern = {"label": custom_label, "pattern": custom_pattern}
+        st.session_state.custom_investment_patterns.append(new_pattern)
+        st.success(f"Added: {custom_pattern} as {custom_label}")
 
-    doc = nlp(user_stock_text)
+        # ---- Immediately show EXAMPLE after adding ----
+        nlp_temp = spacy.load("en_core_web_sm")
+        ruler_temp = nlp_temp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
 
-    # Show results
-    if doc.ents:
-        st.markdown("### 🔍 Detected Entities:")
-        for ent in doc.ents:
-            st.write(f"• **{ent.text}** → `{ent.label_}`")
+        # ONLY user patterns
+        ruler_temp.add_patterns(st.session_state.custom_investment_patterns)
 
-        # Visualize detected entities
-        html = displacy.render(doc, style="ent", page=True)
-        st.components.v1.html(html, height=250, scrolling=True)
+        # Build example sentence (smart way → combine all added patterns into one string)
+        example_investments = [p["pattern"] for p in st.session_state.custom_investment_patterns]
+        example_text = "Example: " + ", ".join(example_investments) + "."
+
+        doc_temp = nlp_temp(example_text)
+
+        st.markdown("### 📌 Example - How Your Patterns Will Be Detected:")
+        html = displacy.render(doc_temp, style="ent", page=True)
+        st.components.v1.html(html, height=200, scrolling=True)
+
     else:
-        st.info("No investment-related entities detected in your input.")
+        st.warning("Please enter an investment name.")
