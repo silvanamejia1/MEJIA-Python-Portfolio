@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Title
-st.title("💰 Smart Invest Plan")
+st.title("💰 EasyInvest Planner")
 st.subheader("Personalized financial planning made easy")
 st.markdown("""
 Welcome to **Smart Invest Plan** — your personalized tool to help you better plan your income allocation and investment strategy. 🎯
