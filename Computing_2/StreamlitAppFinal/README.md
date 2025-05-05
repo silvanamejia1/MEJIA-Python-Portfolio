@@ -91,6 +91,7 @@ Users are also prompted to enter how they are actually spending their income to 
 
 Once entered, a side-by-side bar chart compares:
 This comparison helps users reflect on their current habits and see where adjustments might be made to align better with financial planning recommendations.
+
 <img src="images/bar_graph.png" alt="Bar Graph" width="400"/>
 
 ---
@@ -109,7 +110,21 @@ This allocation is shown in a pie chart to provide a quick overview of where the
 
 ---
 
-### Step 4: Your Personalized Investment Plan
+### Step 4: Learn About Investment Types
+
+Understanding where your money goes is only part of the process. To help users make more informed decisions, the app includes a dedicated section explaining the key asset classes:
+
+- **Variable Income**
+- **Fixed Income**
+- **Alternatives**
+
+Through interactive expanders, users can click and learn what each investment type means, how it contributes to their portfolio, and examples of each. This educational component makes the app especially beginner-friendly, helping users understand the "why" behind their investment recommendations rather than just the "what."
+
+<img src="images/investment_types.png" alt="Investment Types Explanation" width="400"/>
+
+---
+
+### Step 5: Your Personalized Investment Plan
 
 Finally, the app offers tailored investment recommendations based on the calculated allocation.
 
