@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Title
-st.title("💰 EasyInvest Planner!")
+st.title("💰 EasyInvest Planner")
 st.subheader("Personalized financial planning made easy")
 st.markdown("""
 Welcome to **EasyInvest Planner **. Your personalized tool to help you better plan your income allocation and investment strategy. 🎯
@@ -207,8 +207,9 @@ Helps reduce overall risk through diversification and can offer unique growth op
         """)
 
 #Takeaway
+st.markdown("### 👤 Your Personalized Investment Plan")
 st.markdown("Now that you have an investment strategy, let's put it all together into your personalized plan:")
-with st.expander("📊 See Your Personalized Investment Plan"):
+with st.expander("See Your Personalized Investment Plan"):
     st.header("📌 Your Personalized Investment Plan")
 
     st.markdown(f"""
