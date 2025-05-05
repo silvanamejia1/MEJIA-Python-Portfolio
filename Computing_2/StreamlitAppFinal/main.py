@@ -135,6 +135,7 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     st.pyplot(fig)
 
 #Pie chart of investing breakdown
+st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
 if st.button("Show How I Should Be Investing"):
 
     # Investment Allocation Section
@@ -168,6 +169,7 @@ if st.button("Show How I Should Be Investing"):
     """)
 
 #Takeaway
+st.markdown("Now that you have an investment strategy, let's put it all together into your personalized plan:")
 if st.button("📊 See Your Personalized Investment Plan"):
     st.header("📌 Your Personalized Investment Plan")
 
@@ -191,4 +193,4 @@ if st.button("📊 See Your Personalized Investment Plan"):
     Diversify your portfolio with assets that don't move like stocks or bonds.  
     **Recommendation:** Look into **data center real estate**, which is in high demand due to the AI boom.
     """)
-    
+
