@@ -177,7 +177,7 @@ if st.button("📊 See Your Personalized Investment Plan"):
     ### 🏦 Fixed Income ({fixed_income}%)
 
     Lower risk, providing steady returns.  
-    **Recommendation:** Consider Treasury Bonds — they are among the safest investments.
+    **Recommendation:** Consider Treasury Bonds. They are among the safest investments.
 
     ---
 
