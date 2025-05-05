@@ -142,6 +142,13 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     st.pyplot(fig)
 
 #Pie chart of investing breakdown
+if st.button("Show How I Should Be Investing"):
+    if not st.session_state.show_breakdown:
+        st.warning("Please view your spending breakdown first.")
+    else:
+        st.session_state.show_investing = True
+
+if st.session_state.show_investing:
 st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
 if st.button("Show How I Should Be Investing"):
 
