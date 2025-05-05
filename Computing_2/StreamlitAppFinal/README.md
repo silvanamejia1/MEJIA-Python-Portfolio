@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I've always been curious about finance and investing, but for a long time, I never really knew where to start. There are so many possible investment, but as a beginner I never found a tool that felt easy to understand. In fact, most of the tools I found were designed for experts or people already deep into investing.
+I've always been curious about finance and investing, but for a long time, I never really knew where to start. There are so many possible investments, but as a beginner I never found a tool that felt easy to understand and gave me a high level overview of what I need to start. In fact, most of the tools I found were designed for experts or people already deep into investing.
 
 That's why I built **EasyInvest Planner**: A beginner-friendly tool to help people like me make their first personalized financial plan.  
 It focuses on helping you understand two important things:
