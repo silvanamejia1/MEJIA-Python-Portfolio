@@ -112,6 +112,13 @@ Based on your income, here's how much you should ideally spend in a **{breakdown
 """)
 
 # 4. Button to show bar chart of income breakdown
+# But first I crete session state so user has to click see breakdon before seeing spending and summary
+# Initialize state if not already
+if "show_breakdown" not in st.session_state:
+    st.session_state.show_breakdown = False
+if "show_investing" not in st.session_state:
+    st.session_state.show_investing = False
+
 if st.button(f"Show {breakdown_period} Breakdown"):
     categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
     amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
@@ -159,14 +166,6 @@ if st.button("Show How I Should Be Investing"):
     )
     ax_invest.axis('equal')  # Make the pie circular
     st.pyplot(fig_invest) #tie into streamlit app
-
-    # This insight is meant to give backround on the why beahind investment desicions in a way that is wasy to undertsand for an individual without prior finance knowledge 
-    st.markdown(f"""
-    Based on your inputs:
-    - **{variable_income }% Variable Income**: Higher risk, Focused on long-term growth.
-    - **{fixed_income}% Fixed Income**: Lower risk, steady returns.
-    - **{alternatives}% Alternatives**: Diversify your portfolio.
-    """)
 
 #Takeaway
 st.markdown("Now that you have an investment strategy, let's put it all together into your personalized plan:")
