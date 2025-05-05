@@ -78,17 +78,19 @@ These details dynamically affect recommendations. For example:
 ---
 
 ### Step 2: See Where Your Money Goes (Income Allocation)
-
 The app calculates a recommended breakdown of the user's income for:
 
 - Essentials
 - Saving
 - Investing
 - Fun & Other
-
-A bar chart visually displays this breakdown either monthly or yearly, depending on user selection. The app also provides exact dollar amounts in text format.
-
 <img src="images/test_income_breakdown.png" alt="Income Breakdown" width="400"/>
+
+Users are also prompted to enter how they are actually spending their income to personalize the analysis:
+<img src="images/actual_spending_input.png" alt="Actual Spending Input" width="400"/>
+
+Once entered, a side-by-side bar chart compares:
+This comparison helps users reflect on their current habits and see where adjustments might be made to align better with financial planning recommendations.
 <img src="images/bar_graph.png" alt="Bar Graph" width="400"/>
 
 ---
