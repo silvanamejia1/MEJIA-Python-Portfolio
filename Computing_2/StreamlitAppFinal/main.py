@@ -167,51 +167,28 @@ if st.button("Show How I Should Be Investing"):
     - **{alternatives}% Alternatives**: Diversify your portfolio.
     """)
 
-#Custom entity Patterns
-import spacy
-from spacy import displacy
+#Takeaway
+if st.button("📊 See Your Personalized Investment Plan"):
+    st.header("📌 Your Personalized Investment Plan")
 
-nlp = spacy.load('en_core_web_sm')  # Load spaCy
+    st.markdown(f"""
+    ### 📈 Variable Income ({variable_income}%)
 
-# Add entity ruler (so we can add patterns later)
-ruler = nlp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
+    Higher risk, focused on long-term growth.  
+    **Recommendation:** Start with [S&P 500 index funds](https://www.investopedia.com/terms/s/sp500.asp), which offer diversification and are considered a safer bet for beginners.
 
-# 📌 Custom Investment Pattern Section
-st.header("🧠 Assets You're Interested In for Investing")
+    ---
 
-# Initialize pattern list if not exist
-if "custom_investment_patterns" not in st.session_state:
-    st.session_state.custom_investment_patterns = []
+    ### 🏦 Fixed Income ({fixed_income}%)
 
-# Input for new investment pattern
-col1, col2 = st.columns(2)
-with col1:
-    custom_pattern = st.text_input("Investment Name (ex: Google)", key="custom_pattern_input")
-with col2:
-    custom_label = st.selectbox("Investment Type", ["VARIABLE INCOME", "FIXED INCOME", "ALTERNATIVE"], key="custom_label_input")
+    Lower risk, providing steady returns.  
+    **Recommendation:** Consider Treasury Bonds — they are among the safest investments.
 
-if st.button("Add Pattern"):
-    if custom_pattern:
-        # Add new pattern to session state
-        new_pattern = {"label": custom_label, "pattern": custom_pattern}
-        st.session_state.custom_investment_patterns.append(new_pattern)
+    ---
 
-        # Also add to the entity ruler so spaCy will recognize it
-        ruler.add_patterns([new_pattern])
+    ### 🌎 Alternatives ({alternatives}%)
 
-        st.success(f"Added: {custom_pattern} as {custom_label}")
-    else:
-        st.warning("Please enter an investment name.")
-
-if st.button("See My Personalized Investment Plan"):
-
-    # Prepare lists by type
-    variable_income = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "STOCK"]
-    fixed_income = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "FIXED INCOME"]
-    alternatives = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "ALTERNATIVE"]
-
-    st.header("📌 Your Personalized Investment Suggestions")
-
-    st.markdown("**📈 Your Variable Income investments should be:** " + (", ".join(variable_income) if variable_income else "None added."))
-    st.markdown("**🏦 Your Fixed Income investments should be:** " + (", ".join(fixed_income) if fixed_income else "None added."))
-    st.markdown("**🌍 Your Alternative investments should be:** " + (", ".join(alternatives) if alternatives else "None added."))
+    Diversify your portfolio with assets that don't move like stocks or bonds.  
+    **Recommendation:** Look into **data center real estate**, which is in high demand due to the AI boom.
+    """)
+    
