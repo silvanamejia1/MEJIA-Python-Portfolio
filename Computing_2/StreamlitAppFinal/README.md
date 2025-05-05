@@ -33,7 +33,7 @@ By inputting personal and financial details like age, income, dependents, and ri
 
 Whether you're new to investing or just want structured guidance, this app helps make financial planning intuitive and visual.
 
-![Smart Invest Plan App](images/app_overview.png)
+<img src="images/app_overview.png" alt="App Overview" width="400"/>
 
 ---
 ## Instructions
@@ -73,7 +73,7 @@ These details dynamically affect recommendations. For example:
 - Younger users are suggested to take on more Variable Income investments.
 - Users with more dependents are steered towards more Fixed Income for safety.
 
-ACA FOTO DE LOS FILTERS
+<img src="images/filters.png" alt="Filters" width="400"/>
 
 ---
 
@@ -88,7 +88,7 @@ The app calculates a recommended breakdown of the user's income for:
 
 A bar chart visually displays this breakdown either monthly or yearly, depending on user selection. The app also provides exact dollar amounts in text format.
 
-ACA FOTO DEL BAR GRAPH
+<img src="images/bar_graph.png" alt="Bar Graph" width="400"/>
 
 ---
 
@@ -102,7 +102,7 @@ Based on the user profile, the app recommends an investment allocation split int
 
 This allocation is shown in a pie chart to provide a quick overview of where the user's investment funds should be directed.
 
-ACA FOTO DEL PIE CHART
+<img src="images/pie_chart.png" alt="Pie Chart" width="400"/>
 
 ---
 
@@ -112,7 +112,7 @@ Finally, the app offers tailored investment recommendations based on the calcula
 
 
 
-ACA FOTO DEL FINAL RECCOMENDATIONS
+<img src="images/takeaway.png" alt="Takeaway" width="400"/>
 
 ---
 
