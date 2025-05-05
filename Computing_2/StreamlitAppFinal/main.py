@@ -109,13 +109,13 @@ if st.button(f"Show {breakdown_period} Breakdown"):
         height = bar.get_height()
         ax.annotate(f'${height:,.0f}',
                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 5),
+                    xytext=(0, 12),
                     textcoords="offset points",
                     ha='center', va='bottom')
 
     ax.set_ylabel("Amount in USD ($)")
     ax.set_title(f"{breakdown_period} Allocation of Your Income")
-    fig.tight_layout(pad=2.5)
+    fig.tight_layout(pad=4)
     st.pyplot(fig)
 
 if st.button("Show How I Should Be Investing"):
