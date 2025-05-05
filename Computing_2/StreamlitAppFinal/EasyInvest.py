@@ -162,17 +162,21 @@ with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so t
 
 #Asset class expalnation
 st.markdown("### What do these investment types mean?") 
-st.markdown("Understanding what Variable Income, Fixed Income, and Alternatives represent is key to making informed decisions. Explore the sections below to learn more about each type of investment and how they impact your portfolio.")
+st.markdown("Understanding how Variable Income, Fixed Income, and Alternatives contribute to your portafolio is key to making informed decisions. Explore the sections below to learn more about each type of investment.")
 
 # Explanation of Variable Income
 with st.expander("What is Variable Income?"):
-    st.markdown(""" Variable income investments are assets where returns can fluctuate depending on market performance. They tend to offer higher growth potential but also carry more risk.
-                **How it impacts your portfolio:**  
-                Increases your potential for long-term growth, but also adds more volatility. Typically recommended when you are younger or willing to take more risk.
-                **Examples:**
-                - Stocks  
-                - S&P 500 Index Funds  
-                - Mutual Funds""")
+     st.markdown("""
+Variable income investments are assets where returns can fluctuate depending on market performance. They tend to offer higher growth potential but also more volatility.
+
+**How it impacts your portfolio:**  
+Increases your potential for long-term growth, but adds more risk. Suitable when you're younger or willing to take more risk.
+
+**Examples:**  
+- Stocks  
+- S&P 500 Index Funds  
+- Mutual Funds
+""")
 
 # Explanation of Fixed Income
 with st.expander("What is Fixed Income?"):
