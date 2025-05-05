@@ -5,12 +5,12 @@ Welcome to my Python portfolio! This repository will include some of the code an
 ## At a Glance
 
 This portfolio showcases my Python projects combining data analysis, interactive apps, and machine learning techniques. Explore each project below:
-- [Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/Class%20Assingments) – Coding exercises from Elements of Computing II.
+- [Class Assignments](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Class_Assingments) – Coding exercises from Elements of Computing II.
 - [Homework](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/Homework) –  Python practice and assignments.
-- [Basic Streamlit App](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/basic-streamlit-app) – Simple interactive app analyzing customer shopping trends.
-- [TidyData Project](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing%20II/TidyData_Project) – Data cleaning and visualization using tidy data principles.
+- [Basic Streamlit App](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/basic-streamlit-app) – Simple interactive app analyzing customer shopping trends.
+- [TidyData Project](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/TidyData_Project) – Data cleaning and visualization using tidy data principles.
 - [NER Streamlit App](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/NERStreamlitApp) – Custom Named Entity Recognition tool with interactive interface.
-- [EasyInvest Planner (Streamlit App Final)](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/StreamlitAppFinal) – Beginner-friendly financial planning app to help users create personalized investment plans.
+- [Streamlit App Final](https://github.com/silvanamejia1/MEJIA-Python-Portfolio/tree/main/Computing_2/StreamlitAppFinal) – Beginner-friendly financial planning app (EasyInvest) to help users create personalized investment plans.
 
 ## Repository Structure
 - **Computing II**: This folder contains the work I will be doing throughout the *Elements of Computing II* course.
