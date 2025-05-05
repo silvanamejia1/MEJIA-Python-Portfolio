@@ -1,4 +1,4 @@
-# Investment Plan
+# EasyInvest - Investment Planning App
 
 ## Introduction
 
