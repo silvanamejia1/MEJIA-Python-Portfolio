@@ -135,6 +135,7 @@ with st.expander(f"Show {breakdown_period} Breakdown"):
     st.pyplot(fig)
 
 #Pie chart of investing breakdown
+st.markdown("## 📊 Structuring Your Investments")
 st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
 with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so that other information stays after click
 
