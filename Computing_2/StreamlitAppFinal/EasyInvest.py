@@ -6,7 +6,7 @@ import numpy as np
 st.title("💰 EasyInvest Planner")
 st.subheader("Personalized financial planning made easy")
 st.markdown("""
-Welcome to **EasyInvest Planner **. Your personalized tool to help you better plan your income allocation and investment strategy. 🎯
+Welcome to **EasyInvest Planner**. Your personalized tool to help you better plan your income allocation and investment strategy. 🎯
 
 This app takes into account your age, income, financial dependents, and risk preferences to give you two key recommendations:
 - **How to allocate your income** → Essentials, Savings, Investing, and Fun/Other.
@@ -157,7 +157,7 @@ Based on your income, here's how much you should ideally spend in a **{breakdown
 """)
 
 #Compare to actual spending values
-st.markdown("Before comparing with the suggested plan, tell us how you're currently breaking down your income:")
+st.markdown("Before seeing the suggested plan, tell us how you're currently breaking down your income. This will help you visualize how your current spending compares to your ideal spending:")
 st.markdown(f"**Enter your spending amounts below based on your selected breakdown period ({breakdown_period}).**")
 st.markdown("Please round your entries to the nearest $100 to make calculations easier.")
 
