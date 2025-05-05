@@ -134,9 +134,76 @@ with st.expander(f"Show {breakdown_period} Breakdown"):
     fig.tight_layout(pad=4)
     st.pyplot(fig)
 
+    # Explanation of Variable Income
+    with st.expander("What is Variable Income?"):
+        st.markdown(""" Variable income investments are assets where returns can fluctuate depending on market performance. They tend to offer higher growth potential but also carry more risk.
+                **How it impacts your portfolio:**  
+                Increases your potential for long-term growth, but also adds more volatility. Typically recommended when you are younger or willing to take more risk.
+                **Examples:**
+                - Stocks  
+                - S&P 500 Index Funds  
+                - Mutual Funds""")
+    
+    # Explanation of Fixed Income
+    with st.expander("What is Fixed Income?"):
+        st.markdown("""
+Fixed income investments provide stable and predictable returns, making them lower-risk options. These investments help preserve your capital and offer steady income.
+
+**How it impacts your portfolio:**  
+Reduces risk and volatility, while ensuring you have consistent returns. Especially important as you get closer to retirement or have lower risk tolerance.
+
+**Examples:**  
+- Treasury Bonds  
+- Certificates of Deposit (CDs)  
+- Municipal Bonds
+        """)
+
+    # Explanation of Alternatives
+    with st.expander("What are Alternatives?"):
+        st.markdown("""
+Alternatives include investments that are outside of traditional stocks and bonds. They help diversify your portfolio and often behave differently in various market conditions.
+
+**How it impacts your portfolio:**  
+Helps reduce overall risk through diversification and can offer unique growth opportunities not tied to the stock or bond market.
+
+**Examples:**  
+- Real Estate (such as Data Centers)  
+- Commodities  
+- Private Equity
+        """)
+        
+
+# Explanation of Fixed Income
+with st.expander("What is Fixed Income?"):
+    st.markdown("""
+Fixed income investments provide stable and predictable returns, making them lower-risk options. These investments help preserve your capital and offer steady income.
+
+**How it impacts your portfolio:**  
+Reduces risk and volatility, while ensuring you have consistent returns. Especially important as you get closer to retirement or have lower risk tolerance.
+
+**Examples:**  
+- Treasury Bonds  
+- Certificates of Deposit (CDs)  
+- Municipal Bonds
+    """)
+
+# Explanation of Alternatives
+with st.expander("What are Alternatives?"):
+    st.markdown("""
+Alternatives include investments that are outside of traditional stocks and bonds. They help diversify your portfolio and often behave differently in various market conditions.
+
+**How it impacts your portfolio:**  
+Helps reduce overall risk through diversification and can offer unique growth opportunities not tied to the stock or bond market.
+
+**Examples:**  
+- Real Estate (such as Data Centers)  
+- Commodities  
+- Private Equity
+    """)
+
 #Pie chart of investing breakdown
 st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
-with st.expander("Show How I Should Be Investing"):
+with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so that other information stays after click
 
     # Investment Allocation Section
     st.header("📈 How You Should Be Investing")
