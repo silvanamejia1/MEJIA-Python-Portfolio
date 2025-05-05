@@ -134,6 +134,32 @@ with st.expander(f"Show {breakdown_period} Breakdown"):
     fig.tight_layout(pad=4)
     st.pyplot(fig)
 
+#Pie chart of investing breakdown
+st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
+with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so that other information stays after click
+
+    # Investment Allocation Section
+    st.header("📈 How You Should Be Investing")
+
+    # Labels and values
+    investment_labels = ['Variable Income', 'Fixed Income', 'Alternatives']
+    investment_values = [variable_income, fixed_income, alternatives]
+
+    # I choose colors that are different from the first bar graph to avoid confusion
+    investment_colors = ['#AED9E0', '#5DADE2', '#154360']
+
+    # Create pie chart
+    fig_invest, ax_invest = plt.subplots()
+    ax_invest.pie(
+        investment_values, #data that will be ploted 
+        labels=investment_labels, #labels that goes with each %
+        autopct='%1.1f%%', #One decimal place to improve readability
+        colors=investment_colors, #define the same colors as before
+        wedgeprops={'edgecolor': 'white'} #define teh edges of each pie to be able to separate slices
+    )
+    ax_invest.axis('equal')  # Make the pie circular
+    st.pyplot(fig_invest) #tie into streamlit app
+
 #Asset class expalnation
 st.markdown("### What do these investment types mean?") 
 st.markdown("Understanding what Variable Income, Fixed Income, and Alternatives represent is key to making informed decisions. Explore the sections below to learn more about each type of investment and how they impact your portfolio.")
@@ -175,62 +201,6 @@ Helps reduce overall risk through diversification and can offer unique growth op
 - Commodities  
 - Private Equity
         """)
-        
-
-# Explanation of Fixed Income
-with st.expander("What is Fixed Income?"):
-    st.markdown("""
-Fixed income investments provide stable and predictable returns, making them lower-risk options. These investments help preserve your capital and offer steady income.
-
-**How it impacts your portfolio:**  
-Reduces risk and volatility, while ensuring you have consistent returns. Especially important as you get closer to retirement or have lower risk tolerance.
-
-**Examples:**  
-- Treasury Bonds  
-- Certificates of Deposit (CDs)  
-- Municipal Bonds
-    """)
-
-# Explanation of Alternatives
-with st.expander("What are Alternatives?"):
-    st.markdown("""
-Alternatives include investments that are outside of traditional stocks and bonds. They help diversify your portfolio and often behave differently in various market conditions.
-
-**How it impacts your portfolio:**  
-Helps reduce overall risk through diversification and can offer unique growth opportunities not tied to the stock or bond market.
-
-**Examples:**  
-- Real Estate (such as Data Centers)  
-- Commodities  
-- Private Equity
-    """)
-
-#Pie chart of investing breakdown
-st.markdown("Once you know your spending breakdown, it's time to see how you should structure your investments:")
-with st.expander("Show How I Should Be Investing"):#st.exapnder oevr button so that other information stays after click
-
-    # Investment Allocation Section
-    st.header("📈 How You Should Be Investing")
-
-    # Labels and values
-    investment_labels = ['Variable Income', 'Fixed Income', 'Alternatives']
-    investment_values = [variable_income, fixed_income, alternatives]
-
-    # I choose colors that are different from the first bar graph to avoid confusion
-    investment_colors = ['#AED9E0', '#5DADE2', '#154360']
-
-    # Create pie chart
-    fig_invest, ax_invest = plt.subplots()
-    ax_invest.pie(
-        investment_values, #data that will be ploted 
-        labels=investment_labels, #labels that goes with each %
-        autopct='%1.1f%%', #One decimal place to improve readability
-        colors=investment_colors, #define the same colors as before
-        wedgeprops={'edgecolor': 'white'} #define teh edges of each pie to be able to separate slices
-    )
-    ax_invest.axis('equal')  # Make the pie circular
-    st.pyplot(fig_invest) #tie into streamlit app
-
 
 #Takeaway
 st.markdown("Now that you have an investment strategy, let's put it all together into your personalized plan:")
