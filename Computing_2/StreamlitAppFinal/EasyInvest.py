@@ -26,6 +26,18 @@ Use the filters on the left to personalize your plan and click the buttons to se
 age = st.slider("Your Age", 18, 80, 30)
 income = st.number_input("Your Annual Income ($)", min_value=0, value=60000, step=1000)
 dependents = st.slider("Number of Financial Dependents", 0, 5, 0)
+
+st.markdown(f"""
+**Not sure about your risk tolerance?**
+
+Based on your current profile (Age: {age}, Income: ${income:,}, Dependents: {dependents}), you might typically fall under a **{"Low" if age >= 50 or dependents >= 2 else "Medium" if income < 100000 else "High"} Risk Tolerance** category.
+
+However, risk tolerance is personal. Feel free to adjust this based on your comfort and investing goals.
+
+Keep in mind:
+- Higher risk tolerances may offer higher returns, but come with greater exposure to losses.
+- Lower risk tolerances are generally safer, but may offer slower growth.
+""")
 risk_tolerance = st.selectbox("Risk Tolerance", ["Low", "Medium", "High"])
 goal = st.selectbox("Savings Goal", ["Retirement", "Education", "Buying a Home", "Other"])
 
@@ -202,7 +214,7 @@ Alternatives include investments that are outside of traditional stocks and bond
 Helps reduce overall risk through diversification and can offer unique growth opportunities not tied to the stock or bond market.
 
 **Examples:**  
-- Real Estate (such as Data Centers)  
+- Real Estate 
 - Commodities  
 - Private Equity
         """)
