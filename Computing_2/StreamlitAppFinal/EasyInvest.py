@@ -158,12 +158,14 @@ Based on your income, here's how much you should ideally spend in a **{breakdown
 
 #Compare to actual spending values
 st.markdown("Before comparing with the suggested plan, tell us how you're currently breaking down your income:")
+st.markdown(f"**Enter your spending amounts below based on your selected breakdown period ({breakdown_period}).**")
+st.markdown("Please round your entries to the nearest $100 to make calculations easier.")
 
 # User input for actual spending (you can set defaults based on suggested or leave blank)
-actual_essentials = st.number_input("How much do you spend on Essentials per month?", min_value=0.0, value=0.0, step=100.0)
-actual_saving = st.number_input("How much do you save per month?", min_value=0.0, value=0.0, step=100.0)
-actual_investing = st.number_input("How much do you invest per month?", min_value=0.0, value=0.0, step=100.0)
-actual_fun = st.number_input("How much do you spend on Fun & Other per month?", min_value=0.0, value=0.0, step=100.0)
+actual_essentials = st.number_input(f"How much do you spend on Essentials {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
+actual_saving = st.number_input(f"How much do you save {breakdown_period}?" , min_value=0.0, value=0.0, step=100.0)
+actual_investing = st.number_input(f"How much do you invest {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
+actual_fun = st.number_input(f"How much do you spend on Fun & Other {breakdown_period}?", min_value=0.0, value=0.0, step=100.0)
 
 # 4. Button to show bar chart of income breakdown
 with st.expander(f"Show {breakdown_period} Breakdown"):
