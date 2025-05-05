@@ -5,6 +5,23 @@ import numpy as np
 # Title
 st.title("💰 Smart Invest Plan")
 st.subheader("Personalized financial planning made easy")
+st.markdown("""
+Welcome to **Smart Invest Plan** — your personalized tool to help you better plan your income allocation and investment strategy. 🎯
+
+This app takes into account your age, income, financial dependents, and risk preferences to give you two key recommendations:
+- **How to allocate your income** → Essentials, Savings, Investing, and Fun/Other.
+- **How to invest your investment portion** → Stocks, Bonds, and Alternatives.
+
+### 📌 How do filters affect my plan?
+
+- **Age** → Younger users are recommended to take more investment risk (more stocks). Older users shift toward safer options (more bonds).
+- **Dependents** → More dependents means safer allocations (less stock, more bonds) and slightly higher essential expenses. This supposes taht a higher % of your income would go towards essential for otehr members in your family.
+- **Income** → Higher income allows for higher saving and investing percentages.
+- **Risk Tolerance** → If you prefer higher risk, your portfolio will lean more toward stocks. If lower, toward bonds. Answer this based on personal preference.
+- **Savings Goal** → While not changing calculations directly, it helps frame your investment mindset.
+
+Use the filters on the left to personalize your plan and click the buttons to see a clear visual breakdown of where your money should go and how you should invest.
+""")
 
 # User Inputs Revelant to investment
 age = st.slider("Your Age", 18, 80, 30)
