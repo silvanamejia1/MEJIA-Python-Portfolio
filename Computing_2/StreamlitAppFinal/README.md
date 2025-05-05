@@ -88,6 +88,7 @@ The app calculates a recommended breakdown of the user's income for:
 
 A bar chart visually displays this breakdown either monthly or yearly, depending on user selection. The app also provides exact dollar amounts in text format.
 
+<img src="images/test_income_breakdown.png" alt="Income Breakdown" width="400"/>
 <img src="images/bar_graph.png" alt="Bar Graph" width="400"/>
 
 ---
