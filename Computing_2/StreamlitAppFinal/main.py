@@ -95,7 +95,7 @@ Based on your income, here's how much you should ideally spend in a **{breakdown
 - 🎉 Fun & Other: **${fun_amt:,.2f}**
 """)
 
-# 4. Button to show chart
+# 4. Button to show bar chart of income breakdown
 if st.button(f"Show {breakdown_period} Breakdown"):
     categories = ["Essentials", "Saving", "Investing", "Fun & Other"]
     amounts = [essentials_amt, save_amt, invest_amt, fun_amt]
@@ -109,7 +109,7 @@ if st.button(f"Show {breakdown_period} Breakdown"):
         height = bar.get_height()
         ax.annotate(f'${height:,.0f}',
                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 12),
+                    xytext=(0, 8),
                     textcoords="offset points",
                     ha='center', va='bottom')
 
@@ -118,6 +118,7 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     fig.tight_layout(pad=4)
     st.pyplot(fig)
 
+#5. Button to show pie chart of investing breakdown
 if st.button("Show How I Should Be Investing"):
 
     # Investment Allocation Section
