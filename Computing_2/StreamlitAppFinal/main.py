@@ -205,45 +205,16 @@ if st.button("Add Pattern"):
 
 if st.button("See My Personalized Investment Plan"):
 
-    st.header("🎯 Your Personalized Investment Plan")
+    # Prepare lists by type
+    variable_income = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "STOCK"]
+    fixed_income = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "BOND"]
+    alternatives = [p["pattern"] for p in st.session_state.custom_investment_patterns if p["label"] == "ALTERNATIVE"]
 
-    # Show recommended percentages (you need to define variable_income, fixed_income, alternatives somewhere)
-    st.markdown(f"""
-    **Recommended Investment Allocation:**
-    - 📈 Variable Income: **{variable_income}%**
-    - 🏦 Fixed Income: **{fixed_income}%**
-    - 🌐 Alternatives: **{alternatives}%**
-    """)
+    st.header("📌 Your Personalized Investment Suggestions")
 
-    # Build sentence again with all user-added patterns
-    patterns_text = ", ".join([p["pattern"] for p in st.session_state.custom_investment_patterns])
-    doc_temp = nlp(patterns_text)  # ✅ USE nlp, now with entity ruler patterns added!
+    # Display recommendations
+    st.markdown("**Your Variable Income investments should be:** " + (", ".join(variable_income) if variable_income else "None added."))
 
-    # Group again by category
-    grouped = {
-        "Variable Income": [],
-        "Fixed Income": [],
-        "Alternatives": []
-    }
+    st.markdown("**Your Fixed Income investments should be:** " + (", ".join(fixed_income) if fixed_income else "None added."))
 
-    for ent in doc_temp.ents:
-        if ent.label_ == "VARIABLE INCOME":
-            grouped["Variable Income"].append(ent.text)
-        elif ent.label_ == "FIXED INCOME":
-            grouped["Fixed Income"].append(ent.text)
-        elif ent.label_ == "ALTERNATIVE":
-            grouped["Alternatives"].append(ent.text)
-
-    # Show custom pattern list
-    st.markdown("**Assets You Selected for Each Category:**")
-
-    for category, items in grouped.items():
-        if items:
-            st.markdown(f"**{category}:** " + ", ".join(items))
-        else:
-            st.markdown(f"**{category}:** None selected.")
-
-    # Show displacy view for easy visual summary
-    st.markdown("**Visual Summary:**")
-    html = displacy.render(doc_temp, style="ent", page=True)
-    st.components.v1.html(html, height=250, scrolling=True)
+    st.markdown("**Your Alternative investments should be:** " + (", ".join(alternatives) if alternatives else "None added."))
