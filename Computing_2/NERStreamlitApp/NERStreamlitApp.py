@@ -142,3 +142,4 @@ if st.button("🔍 Run NER on Text"):
            html = displacy.render(doc, style="ent", page=True)
            st.components.v1.html(html, height=500, scrolling=True)
 
+

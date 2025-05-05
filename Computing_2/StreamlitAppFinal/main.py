@@ -118,40 +118,37 @@ if st.button(f"Show {breakdown_period} Breakdown"):
     fig.tight_layout(pad=2.5)
     st.pyplot(fig)
 
+if st.button("Show How I Should Be Investing"):
 
- # 💼 Investment Allocation Section
-st.header("📈 How You Should Be Investing")
+    # Investment Allocation Section
+    st.header("📈 How You Should Be Investing")
 
-# Rename 'cash' to 'alternatives' for this context
-alternatives = cash
+    # Labels and values
+    investment_labels = ['Stocks', 'Bonds', 'Alternatives']
+    investment_values = [stocks, bonds, alternatives]
 
-# Labels and values
-investment_labels = ['Stocks', 'Bonds', 'Alternatives']
-investment_values = [stocks, bonds, alternatives]
+    # I choose colors that are different from the first bar graph to avoid confusion
+    investment_colors = ['#AED9E0', '#5DADE2', '#154360']
 
-# Blue gradient colors (light to dark)
-investment_colors = ['#AED9E0', '#5DADE2', '#154360']
+    # Create pie chart
+    fig_invest, ax_invest = plt.subplots()
+    ax_invest.pie(
+        investment_values, #data that will be ploted 
+        labels=investment_labels, #labels that goes with each %
+        autopct='%1.1f%%', #One decimal place to improve readability
+        colors=investment_colors, #define the same colors as before
+        wedgeprops={'edgecolor': 'white'} #define teh edges of each pie to be able to separate slices
+    )
+    ax_invest.axis('equal')  # Make the pie circular
+    st.pyplot(fig_invest) #tie into streamlit app
 
-# Create pie chart
-fig_invest, ax_invest = plt.subplots()
-ax_invest.pie(
-    investment_values,
-    labels=investment_labels,
-    autopct='%1.1f%%',
-    startangle=90,
-    colors=investment_colors,
-    wedgeprops={'edgecolor': 'white'}
-)
-ax_invest.axis('equal')  # Make the pie circular
-st.pyplot(fig_invest)
-
-# Optional insight
-st.markdown(f"""
-Based on your inputs:
-- **{stocks}% Stocks**: Focused on long-term growth.
-- **{bonds}% Bonds**: Lower risk, steady returns.
-- **{alternatives}% Alternatives**: Emergency fund, real estate, or diversified instruments.
-""")
+    # This insight is meant to give backround on the why beahind investment desicions in a way that is wasy to undertsand for an individual without prior finance knowledge 
+    st.markdown(f"""
+    Based on your inputs:
+    - **{stocks}% Stocks**: Higher risk, Focused on long-term growth.
+    - **{bonds}% Bonds**: Lower risk, steady returns.
+    - **{alternatives}% Alternatives**: Diversify your portfolio.
+    """)
 
 import spacy
 from spacy import displacy
